@@ -1,0 +1,93 @@
+header {
+  margin: 0 1rem;
+}
+
+h1,
+button {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 1rem 0;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+}
+
+.dark-bg-button {
+  background: #925d3b;
+  color: white;
+  padding: 0.5rem 1.8rem;
+}
+
+.clear-bg-button,
+#favorites-button,
+a {
+  color: #925d3b;
+}
+
+.clear-bg-button,
+#favorites-button {
+  background: none;
+}
+
+button,
+.logo {
+  cursor: pointer;
+}
+
+#logo {
+  width: 90px;
+  height: 90px;
+}
+
+#favorites-button {
+  font-size: 2rem;
+  padding: 0;
+}
+
+.favorites-button-wrapper,
+.logo-wrapper {
+  text-align: center;
+}
+
+.hero-container {
+  background-image: url('/images/hero-image.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 85vh;
+}
+
+.hero-container > img {
+  width: 100%;
+}
+
+.hero-text-wrapper {
+  background-color: #eee;
+  opacity: 0.85;
+  text-align: center;
+  padding: 2rem;
+  position: absolute;
+  border: #925d3b solid 3px;
+}
+
+footer {
+  background-color: white;
+  font-size: 0.7rem;
+  padding: 0.5rem 0;
+}
+
+p > a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

@@ -1,20 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AJAX Project</title>
-  <link rel="icon" href="images/favicon.ico">
+  <title>What's Cooking?</title>
+  <script src="https://kit.fontawesome.com/9ca71aadf7.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="images/logo-icon.png">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-  <header>
-  </header>
-  <main>
-  </main>
+  <div class="main-container">
+    <header class="row">
+      <div class="logo-wrapper column-one-forth">
+        <a href=""><img id="logo" src="images/logo.png" alt="Logo"></a>
+      </div>
+      <div class="column-half"></div>
+      <div class="favorites-button-wrapper column-one-forth">
+        <button id="favorites-button"><i class="fas fa-heart"></i></button>
+      </div>
+    </header>
+    <main>
+      <div class="row hero-container" data-view="home-page">
+        <div class="hero-image-wrapper">
+        </div>
+        <div class="hero-text-wrapper">
+          <h1>What's Cooking?</h1>
+          <p>Don't know? Take a short quiz to get a tasty recipe!</p>
+          <button class="dark-bg-button start-quiz-button">Start Quiz</button>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p class="row">&copy; <a href="https://github.com/hnguy96/ajax-project">2021 hellohien</a></p>
+      <p class="row">Illustrations by TWG Designs</p>
+    </footer>
+  </div>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>

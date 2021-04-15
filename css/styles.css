@@ -11,6 +11,10 @@ button {
   margin: 0.8rem 0;
 }
 
+h1 {
+  font-size: 2.2rem;
+}
+
 p {
   margin: 0;
 }
@@ -111,13 +115,10 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
 }
 
 .meal-type-option {
-  margin: 1rem;
-  display: flex;
-  align-items: center;
+  margin: 0.8rem 0;
 }
 
 .meal-type-option > label {
@@ -175,10 +176,10 @@ footer {
   padding: 0.5rem 0;
 }
 
-p > a {
+footer > p > a {
   text-decoration: none;
 }
 
-a:hover {
+footer > p > a:hover {
   text-decoration: underline;
 }

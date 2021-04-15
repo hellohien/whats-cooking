@@ -14,15 +14,11 @@
 
 <body>
   <div class="main-container">
-    <header class="row">
-      <div class="logo-wrapper column-one-forth">
-        <a href=""><img id="logo" src="images/logo.png" alt="Logo"></a>
-      </div>
-      <div class="column-half"></div>
-      <div class="favorites-button-wrapper column-one-forth">
-        <button id="favorites-button"><i class="fas fa-heart"></i></button>
-      </div>
+    <header>
+      <a href=""><img id="logo" src="images/logo.png" alt="Logo"></a>
+      <button id="favorites-button"><i class="fas fa-heart"></i></button>
     </header>
+
     <main>
       <div class="row hero-container" data-view="home-page">
         <div class="hero-image-wrapper">
@@ -33,10 +29,72 @@
           <button class="dark-bg-button start-quiz-button">Start Quiz</button>
         </div>
       </div>
+
+      <div class="row question-container" data-view="question-1">
+        <div class="column-half">
+          <img src="images/question-1-image.png" class="question-image" alt="Question 1 Image">
+        </div>
+        <div class="column-half">
+          <div class="question-details-wrapper">
+            <div class="question-heading">
+              <h2>Choose your meal type:</h2>
+            </div>
+            <form id="meal-type-form">
+              <div>
+                <div class="meal-type-option breakfast-option">
+                  <input type="radio" name="meal-type" id="breakfast">
+                  <label for="breakfast" class="question-label">breakfast</label>
+                </div>
+                <div class="meal-type-option brunch-option">
+                  <input type="radio" name="meal-type" id="brunch">
+                  <label for="brunch" class="question-label">brunch</label>
+                </div>
+                <div class="meal-type-option lunch-option">
+                  <input type="radio" name="meal-type" id="lunch">
+                  <label for="lunch" class="question-label">lunch</label>
+                </div>
+                <div class="meal-type-option dinner-option">
+                  <input type="radio" name="meal-type" id="dinner">
+                  <label for="dinner" class="question-label">dinner</label>
+                </div>
+                <div class="meal-type-option snack-option">
+                  <input type="radio" name="meal-type" id="snack">
+                  <label for="snack" class="question-label">snack</label>
+                </div>
+                <div class="next-button-wrapper">
+                  <button class="next-button clear-bg-button">Next</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="row question-container" data-view="question-2">
+        <div class="column-half">
+          <img src="images/question-2-image.png" class="question-image" alt="Question 1 Image">
+        </div>
+        <div class="column-half">
+          <div class="question-details-wrapper">
+            <form id="main-ingredient-form">
+              <div class="main-ingredient-option">
+                <label for="main-ingredient" class="question-label"><h2>Optional: One main ingredient you want to work with</h2></label>
+                <input type="text" name="ingredient" id="main-ingredient" placeholder="beef, crab, broccolli">
+              </div>
+              <div class="next-button-wrapper">
+                <button class="lets-cook-button clear-bg-button">Let's Cook</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
     </main>
-    <footer>
-      <p class="row">&copy; <a href="https://github.com/hnguy96/ajax-project">2021 hellohien</a></p>
-      <p class="row">Illustrations by TWG Designs</p>
+
+
+    <footer class="column">
+      <p>&copy; <a href="https://github.com/hnguy96/ajax-project">2021 hellohien</a></p>
+      <p>Illustrations by TWG Designs</p>
     </footer>
   </div>
   <script src="js/data.js"></script>

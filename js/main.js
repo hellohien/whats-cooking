@@ -8,3 +8,5 @@ function getDishData(mealType, mainIngredient) {
   });
   xhrObj.send();
 }
+
+getDishData('breakfast', 'chicken');

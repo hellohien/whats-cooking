@@ -4,22 +4,22 @@ header {
   justify-content: space-between;
 }
 
-h1,
-button,
-.hero-text-wrapper > p {
-  font-weight: bold;
-}
-
-h1,
-button {
-  margin: 0.8rem 0;
+h1 {
+  margin: 0.2rem 0;
 }
 
 p {
   margin: 0;
 }
 
+h1,
+button,
+.hero-text-wrapper > p {
+  font-weight: bold;
+}
+
 button {
+  margin: 1rem 0;
   outline: none;
   border: none;
   font-size: 1.1rem;

@@ -1,5 +1,9 @@
 var $mealTypeForm = document.getElementById('meal-type-form');
 var $mealType = document.getElementsByName('meal-type');
+var $startQuizButton = document.querySelector('.start-quiz-button');
+var $homePage = document.querySelector('.hero-container');
+var $form1 = document.querySelector('.question-1-container');
+var $form2 = document.querySelector('.question-2-container');
 
 function getRecipeData(mealType) {
   var xhrObj = new XMLHttpRequest();
@@ -23,6 +27,19 @@ function submitAnswers(event) {
     }
     getRecipeData(mealType);
   }
+  changeView('question-2');
+}
+
+function changeView(view) {
+  if ($homePage.getAttribute('data-view') === 'home-page') {
+    $homePage.classList.add('hidden');
+    $form1.classList.remove('hidden');
+  }
+  if (view === $form2.dataset.view) {
+    $form1.classList.add('hidden');
+    $form2.classList.remove('hidden');
+  }
 }
 
 $mealTypeForm.addEventListener('submit', submitAnswers);
+$startQuizButton.addEventListener('click', changeView);

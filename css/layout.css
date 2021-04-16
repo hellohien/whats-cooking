@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+body {
+  color: #925d3b;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.main-container {
+  max-width: 667px;
+  margin: 0 auto;
+  position: relative;
+  height: 100vh;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (min-width: 668px) {
+  .question-image {
+    max-width: 550px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .main-container {
+    max-width: 1200px;
+  }
+
+  .column-half {
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-text-wrapper > h1 {
+    font-size: 3rem;
+  }
+
+  .hero-text-wrapper {
+    width: 600px;
+  }
+}

@@ -1,20 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AJAX Project</title>
-  <link rel="icon" href="images/favicon.ico">
+  <title>What's Cooking?</title>
+  <script src="https://kit.fontawesome.com/9ca71aadf7.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="images/logo-icon.png">
   <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/layout.css">
 </head>
+
 <body>
-  <header>
-  </header>
-  <main>
-  </main>
+  <div class="main-container">
+    <header>
+      <a href=""><img id="logo" src="images/logo.png" alt="Logo"></a>
+      <button id="favorites-button"><i class="fas fa-heart"></i></button>
+    </header>
+
+    <main>
+      <div class="row hero-container" data-view="home-page">
+        <div class="hero-image-wrapper">
+        </div>
+        <div class="hero-text-wrapper">
+          <h1>What's Cooking?</h1>
+          <p>Don't know? Take the quiz to get a tasty recipe!</p>
+          <button class="dark-bg-button start-quiz-button">Start Quiz</button>
+        </div>
+      </div>
+
+      <div class="row question-container question-1-container hidden" data-view="question-1">
+        <div class="column-half">
+          <img src="images/question-1-image.png" class="question-image" alt="Question 1 Image">
+        </div>
+        <div class="column-half">
+          <div class="question-details-wrapper">
+            <form id="meal-type-form">
+              <h2>Choose your meal type:</h2>
+              <div class="meal-type-options">
+                <div class="meal-type breakfast-option">
+                  <input type="radio" name="meal-type" id="breakfast">
+                  <label for="breakfast" class="question-label">breakfast</label>
+                </div>
+                <div class="meal-type brunch-option">
+                  <input type="radio" name="meal-type" id="brunch">
+                  <label for="brunch" class="question-label">brunch</label>
+                </div>
+                <div class="meal-type lunch-option">
+                  <input type="radio" name="meal-type" id="lunch">
+                  <label for="lunch" class="question-label">lunch</label>
+                </div>
+                <div class="meal-type dinner-option">
+                  <input type="radio" name="meal-type" id="dinner">
+                  <label for="dinner" class="question-label">dinner</label>
+                </div>
+                <div class="meal-type snack-option">
+                  <input type="radio" name="meal-type" id="snack">
+                  <label for="snack" class="question-label">snack</label>
+                </div>
+                <div class="next-button-wrapper">
+                  <button class="next-button clear-bg-button">Next</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="row question-container question-2-container hidden" data-view="question-2">
+        <div class="column-half">
+          <img src="images/question-2-image.png" class="question-image" alt="Question 1 Image">
+        </div>
+        <div class="column-half">
+          <div class="question-details-wrapper">
+            <form id="cuisine-type-form">
+              <h2>What are you in the mood for?:</h2>
+              <div class="cuisine-type-options">
+                <div class="cuisine-type american-option">
+                  <input type="radio" name="cuisine-type" id="american">
+                  <label for="american" class="question-label">american</label>
+                </div>
+                <div class="cuisine-type asian-option">
+                  <input type="radio" name="cuisine-type" id="asian">
+                  <label for="asian" class="question-label">asian</label>
+                </div>
+                <div class="cuisine-type italian-option">
+                  <input type="radio" name="cuisine-type" id="italian">
+                  <label for="italian" class="question-label">italian</label>
+                </div>
+                <div class="cuisine-type mediterranean-option">
+                  <input type="radio" name="cuisine-type" id="mediterranean">
+                  <label for="mediterranean" class="question-label">mediterranean</label>
+                </div>
+                <div class="cuisine-type mexican-option">
+                  <input type="radio" name="cuisine-type" id="mexican">
+                  <label for="mexican" class="question-label">mexican</label>
+                </div>
+                <div class="next-button-wrapper">
+                  <button class="next-button clear-bg-button">Let's Cook</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; <a href="https://github.com/hnguy96/ajax-project">2021 hellohien</a></p>
+      <p>Illustrations by TWG Designs</p>
+    </footer>
+  </div>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>

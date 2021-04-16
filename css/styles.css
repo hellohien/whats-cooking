@@ -1,0 +1,174 @@
+header {
+  margin: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  margin: 0.2rem 0;
+}
+
+p {
+  margin: 0;
+}
+
+h1,
+button,
+.hero-text-wrapper > p {
+  font-weight: bold;
+}
+
+button {
+  margin: 1rem 0;
+  outline: none;
+  border: none;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.dark-bg-button {
+  background: #925d3b;
+  color: white;
+  padding: 0.5rem 1.8rem;
+}
+
+.clear-bg-button,
+#favorites-button,
+a {
+  color: #925d3b;
+}
+
+.clear-bg-button,
+#favorites-button {
+  background: none;
+}
+
+.clear-bg-button {
+  border: solid #925d3b 2px;
+  padding: 0.3rem 1.8rem;
+}
+
+label {
+  float: center;
+  width: 100%;
+  text-transform: uppercase;
+  background-color: #925d3b;
+  color: white;
+  display: block;
+  padding: 0.3rem;
+}
+
+button,
+#logo,
+label {
+  cursor: pointer;
+}
+
+#logo {
+  width: 100px;
+  height: 100px;
+}
+
+#favorites-button {
+  font-size: 2rem;
+  padding: 0;
+}
+
+#favorites-button:hover {
+  color: #db9264;
+}
+
+.hero-text-wrapper,
+.question-details-wrapper,
+.next-button,
+footer {
+  text-align: center;
+}
+
+.hero-container {
+  background-image: url('/images/hero-image.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 84vh;
+  position: relative;
+}
+
+.hero-container > img {
+  width: 100%;
+}
+
+.hero-text-wrapper {
+  background-color: #eee;
+  opacity: 0.9;
+  padding: 1rem 2rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: #925d3b solid 3px;
+}
+
+.hero-text-wrapper > h1 {
+  font-size: 2.2rem;
+}
+
+.question-container {
+  margin: 1rem 0;
+}
+
+.question-details-wrapper {
+  margin: 0 2rem;
+}
+
+.question-image {
+  width: 100%;
+  padding: 2rem;
+}
+
+.meal-type,
+.cuisine-type {
+  margin: 0.8rem 0;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.start-quiz-button:hover,
+label:hover,
+input[type="radio"]:checked + label {
+  background-color: #db9264;
+}
+
+.next-button {
+  float: right;
+}
+
+label h2,
+.question-heading h2,
+.next-button {
+  margin: 1.2rem 0;
+}
+
+.next-button:hover {
+  background-color: #925d3b;
+  color: white;
+}
+
+.next-button-wrapper {
+  width: 100%;
+}
+
+footer {
+  font-size: 0.7rem;
+  padding: 0.5rem 0;
+}
+
+footer > p > a {
+  text-decoration: none;
+}
+
+footer > p > a:hover {
+  text-decoration: underline;
+}

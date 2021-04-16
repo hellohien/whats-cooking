@@ -8,8 +8,8 @@
   <script src="https://kit.fontawesome.com/9ca71aadf7.js" crossorigin="anonymous"></script>
   <link rel="icon" href="images/logo-icon.png">
   <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/layout.css">
 </head>
 
 <body>
@@ -25,39 +25,37 @@
         </div>
         <div class="hero-text-wrapper">
           <h1>What's Cooking?</h1>
-          <p>Don't know? Take a short quiz to get a tasty recipe!</p>
+          <p>Don't know? Take the quiz to get a tasty recipe!</p>
           <button class="dark-bg-button start-quiz-button">Start Quiz</button>
         </div>
       </div>
 
-      <div class="row question-container" data-view="question-1">
+      <div class="row question-container question-1-container" data-view="question-1">
         <div class="column-half">
           <img src="images/question-1-image.png" class="question-image" alt="Question 1 Image">
         </div>
         <div class="column-half">
           <div class="question-details-wrapper">
-            <div class="question-heading">
-              <h2>Choose your meal type:</h2>
-            </div>
             <form id="meal-type-form">
-              <div>
-                <div class="meal-type-option breakfast-option">
+              <h2>Choose your meal type:</h2>
+              <div class="meal-type-options">
+                <div class="meal-type breakfast-option">
                   <input type="radio" name="meal-type" id="breakfast">
                   <label for="breakfast" class="question-label">breakfast</label>
                 </div>
-                <div class="meal-type-option brunch-option">
+                <div class="meal-type brunch-option">
                   <input type="radio" name="meal-type" id="brunch">
                   <label for="brunch" class="question-label">brunch</label>
                 </div>
-                <div class="meal-type-option lunch-option">
+                <div class="meal-type lunch-option">
                   <input type="radio" name="meal-type" id="lunch">
                   <label for="lunch" class="question-label">lunch</label>
                 </div>
-                <div class="meal-type-option dinner-option">
+                <div class="meal-type dinner-option">
                   <input type="radio" name="meal-type" id="dinner">
                   <label for="dinner" class="question-label">dinner</label>
                 </div>
-                <div class="meal-type-option snack-option">
+                <div class="meal-type snack-option">
                   <input type="radio" name="meal-type" id="snack">
                   <label for="snack" class="question-label">snack</label>
                 </div>
@@ -70,15 +68,15 @@
         </div>
       </div>
 
-      <div class="row question-container" data-view="question-2">
+      <div class="row question-container question-2-container hidden" data-view="question-2">
         <div class="column-half">
           <img src="images/question-2-image.png" class="question-image" alt="Question 1 Image">
         </div>
         <div class="column-half">
           <div class="question-details-wrapper">
             <form id="main-ingredient-form">
-              <div class="main-ingredient-option">
-                <label for="main-ingredient" class="question-label"><h2>Optional: One ingredient/ main ingredient you want to work with:</h2></label>
+              <div class="main-ingredient">
+                <label for="main-ingredient" class="question-label"><h2>Optional: One ingredient you want to work with:</h2></label>
                 <input type="text" name="ingredient" id="main-ingredient" placeholder="beef, crab, broccolli">
               </div>
               <div class="next-button-wrapper">

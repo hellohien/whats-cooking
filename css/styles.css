@@ -7,12 +7,7 @@ header {
 h1,
 button {
   font-weight: bold;
-  text-transform: uppercase;
   margin: 0.8rem 0;
-}
-
-h1 {
-  font-size: 2.2rem;
 }
 
 p {
@@ -23,6 +18,7 @@ button {
   outline: none;
   border: none;
   font-size: 1.1rem;
+  text-transform: uppercase;
 }
 
 .dark-bg-button {
@@ -49,7 +45,7 @@ a {
 
 button,
 #logo,
-.meal-type-option > label {
+.meal-type > label {
   cursor: pointer;
 }
 
@@ -98,6 +94,10 @@ footer {
   border: #925d3b solid 3px;
 }
 
+.hero-text-wrapper > h1 {
+  font-size: 2.2rem;
+}
+
 .question-container {
   margin: 1rem 0;
 }
@@ -117,11 +117,11 @@ footer {
   justify-content: center;
 }
 
-.meal-type-option {
+.meal-type {
   margin: 0.8rem 0;
 }
 
-.meal-type-option > label {
+.meal-type > label {
   float: center;
   width: 100%;
   text-transform: uppercase;
@@ -131,13 +131,14 @@ footer {
   padding: 0.3rem;
 }
 
-.start-quiz-button:hover,
-.meal-type-option > label:hover {
-  background-color: #db9264;
-}
-
 input[type="radio"] {
   display: none;
+}
+
+.start-quiz-button:hover,
+.meal-type > label:hover,
+input[type="radio"]:checked + label {
+  background-color: #db9264;
 }
 
 label h2,

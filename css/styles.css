@@ -5,8 +5,13 @@ header {
 }
 
 h1,
-button {
+button,
+.hero-text-wrapper > p {
   font-weight: bold;
+}
+
+h1,
+button {
   margin: 0.8rem 0;
 }
 
@@ -43,9 +48,19 @@ a {
   padding: 0.3rem 1.8rem;
 }
 
+label {
+  float: center;
+  width: 100%;
+  text-transform: uppercase;
+  background-color: #925d3b;
+  color: white;
+  display: block;
+  padding: 0.3rem;
+}
+
 button,
 #logo,
-.meal-type > label {
+label {
   cursor: pointer;
 }
 
@@ -111,24 +126,9 @@ footer {
   padding: 2rem;
 }
 
-.meal-type-form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.meal-type {
+.meal-type,
+.cuisine-type {
   margin: 0.8rem 0;
-}
-
-.meal-type > label {
-  float: center;
-  width: 100%;
-  text-transform: uppercase;
-  background-color: #925d3b;
-  color: white;
-  display: block;
-  padding: 0.3rem;
 }
 
 input[type="radio"] {
@@ -136,40 +136,28 @@ input[type="radio"] {
 }
 
 .start-quiz-button:hover,
-.meal-type > label:hover,
+label:hover,
 input[type="radio"]:checked + label {
   background-color: #db9264;
 }
 
+.next-button {
+  float: right;
+}
+
 label h2,
-.lets-cook-button,
 .question-heading h2,
 .next-button {
   margin: 1.2rem 0;
 }
 
-.next-button-wrapper {
-  width: 100%;
-}
-
-.next-button,
-.lets-cook-button {
-  float: right;
-}
-
-.lets-cook-button:hover,
 .next-button:hover {
   background-color: #925d3b;
   color: white;
 }
 
-#main-ingredient {
+.next-button-wrapper {
   width: 100%;
-  height: 30px;
-  border: solid 2px #925d3b;
-  color: #925d3b;
-  outline: none;
-  font-size: 1.2rem;
 }
 
 footer {

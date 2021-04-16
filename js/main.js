@@ -1,33 +1,49 @@
 var $mealTypeForm = document.getElementById('meal-type-form');
+var $cuisineTypeForm = document.getElementById('cuisine-type-form');
 var $mealType = document.getElementsByName('meal-type');
+var $cuisineType = document.getElementsByName('cuisine-type');
 var $startQuizButton = document.querySelector('.start-quiz-button');
 var $homePage = document.querySelector('.hero-container');
 var $form1 = document.querySelector('.question-1-container');
 var $form2 = document.querySelector('.question-2-container');
 
-function getRecipeData(mealType) {
-  var xhrObj = new XMLHttpRequest();
-  xhrObj.open('GET', 'https://api.edamam.com/search?app_id=56d29915&app_key=8a2c94a84e7c4a5a2c94ff997508b44b&q=&mealType=' + mealType);
-  xhrObj.responseType = 'json';
-  xhrObj.addEventListener('load', function () {
-    console.log('xhrstatus', xhrObj.status);
-    console.log('xhresponse', xhrObj.response);
+var mealType = null;
+var cuisineType = null;
+
+function getRecipeData(mealType, cusineType) {
+  var xhrRequest = new XMLHttpRequest();
+  xhrRequest.open('GET', 'https://api.edamam.com/search?app_id=56d29915&app_key=8a2c94a84e7c4a5a2c94ff997508b44b&from=0&to=20&q=&mealType=' + mealType + '&cuisineType=' + cusineType);
+  xhrRequest.responseType = 'json';
+  xhrRequest.addEventListener('load', function () {
+    console.log('xhrstatus', xhrRequest.status);
+    console.log('xhresponse', xhrRequest.response);
   });
-  xhrObj.send();
+  xhrRequest.send();
 }
 
-function submitAnswers(event) {
+function setGlobalVariables(event) {
   event.preventDefault();
-  var mealType = null;
   if (event.target.getAttribute('id') === 'meal-type-form') {
-    for (var i = 0; i < $mealType.length; i++) {
-      if ($mealType[i].checked) {
-        mealType = $mealType[i].getAttribute('id');
+    for (var mealIndex = 0; mealIndex < $mealType.length; mealIndex++) {
+      if ($mealType[mealIndex].checked) {
+        mealType = $mealType[mealIndex].getAttribute('id');
       }
     }
-    getRecipeData(mealType);
+    changeView('question-2');
+  } else if (event.target.getAttribute('id') === 'cuisine-type-form') {
+    for (var cuisineIndex = 0; cuisineIndex < $cuisineType.length; cuisineIndex++) {
+      if ($cuisineType[cuisineIndex].checked) {
+        cuisineType = $cuisineType[cuisineIndex].getAttribute('id');
+      }
+    }
   }
-  changeView('question-2');
+  checkGlobalVariables();
+}
+
+function checkGlobalVariables(event) {
+  if (mealType && cuisineType) {
+    getRecipeData(mealType, cuisineType);
+  }
 }
 
 function changeView(view) {
@@ -41,5 +57,6 @@ function changeView(view) {
   }
 }
 
-$mealTypeForm.addEventListener('submit', submitAnswers);
+$mealTypeForm.addEventListener('submit', setGlobalVariables);
+$cuisineTypeForm.addEventListener('submit', setGlobalVariables);
 $startQuizButton.addEventListener('click', changeView);

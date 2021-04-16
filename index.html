@@ -74,21 +74,38 @@
         </div>
         <div class="column-half">
           <div class="question-details-wrapper">
-            <form id="main-ingredient-form">
-              <div class="main-ingredient">
-                <label for="main-ingredient" class="question-label"><h2>Optional: One ingredient you want to work with:</h2></label>
-                <input type="text" name="ingredient" id="main-ingredient" placeholder="beef, crab, broccolli">
-              </div>
-              <div class="next-button-wrapper">
-                <button class="lets-cook-button clear-bg-button">Let's Cook</button>
+            <form id="cuisine-type-form">
+              <h2>What are you in the mood for?:</h2>
+              <div class="cuisine-type-options">
+                <div class="cuisine-type american-option">
+                  <input type="radio" name="cuisine-type" id="american">
+                  <label for="american" class="question-label">american</label>
+                </div>
+                <div class="cuisine-type asian-option">
+                  <input type="radio" name="cuisine-type" id="asian">
+                  <label for="asian" class="question-label">asian</label>
+                </div>
+                <div class="cuisine-type italian-option">
+                  <input type="radio" name="cuisine-type" id="italian">
+                  <label for="italian" class="question-label">italian</label>
+                </div>
+                <div class="cuisine-type mediterranean-option">
+                  <input type="radio" name="cuisine-type" id="mediterranean">
+                  <label for="mediterranean" class="question-label">mediterranean</label>
+                </div>
+                <div class="cuisine-type mexican-option">
+                  <input type="radio" name="cuisine-type" id="mexican">
+                  <label for="mexican" class="question-label">mexican</label>
+                </div>
+                <div class="next-button-wrapper">
+                  <button class="next-button clear-bg-button">Let's Cook</button>
+                </div>
               </div>
             </form>
           </div>
         </div>
       </div>
-
     </main>
-
 
     <footer>
       <p>&copy; <a href="https://github.com/hnguy96/ajax-project">2021 hellohien</a></p>

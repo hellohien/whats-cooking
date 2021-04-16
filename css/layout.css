@@ -5,10 +5,6 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
-.hidden {
-  display: none !important;
-}
-
 .main-container {
   max-width: 667px;
   margin: 0 auto;
@@ -20,6 +16,10 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.hidden {
+  display: none;
 }
 
 @media screen and (min-width: 668px) {

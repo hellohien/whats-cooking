@@ -21,7 +21,7 @@ function getRecipeData(mealType, cusineType) {
   xhrRequest.send();
 }
 
-function setGlobalVariables(event) {
+function setMealAndCusineInfo(event) {
   event.preventDefault();
   if (event.target.getAttribute('id') === 'meal-type-form') {
     for (var mealIndex = 0; mealIndex < $mealType.length; mealIndex++) {
@@ -37,10 +37,10 @@ function setGlobalVariables(event) {
       }
     }
   }
-  checkGlobalVariables();
+  checkMealAndCusineInfo();
 }
 
-function checkGlobalVariables(event) {
+function checkMealAndCusineInfo(event) {
   if (mealType && cuisineType) {
     getRecipeData(mealType, cuisineType);
   }
@@ -57,6 +57,6 @@ function changeView(view) {
   }
 }
 
-$mealTypeForm.addEventListener('submit', setGlobalVariables);
-$cuisineTypeForm.addEventListener('submit', setGlobalVariables);
+$mealTypeForm.addEventListener('submit', setMealAndCusineInfo);
+$cuisineTypeForm.addEventListener('submit', setMealAndCusineInfo);
 $startQuizButton.addEventListener('click', changeView);

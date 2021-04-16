@@ -23,7 +23,8 @@ body {
 }
 
 @media screen and (min-width: 668px) {
-  .question-image {
+  .question-image,
+  .dish-image {
     max-width: 550px;
   }
 }
@@ -36,8 +37,9 @@ body {
   .column-half {
     flex-basis: 50%;
     display: flex;
+    justify-content: start;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
   }
 
   .hero-text-wrapper > h1 {

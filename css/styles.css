@@ -4,8 +4,25 @@ header {
   justify-content: space-between;
 }
 
-h1 {
-  margin: 0.2rem 0;
+label h2,
+.question-heading h2,
+.next-button {
+  margin: 1.2rem 0;
+}
+
+.clear-bg-button,
+#favorites-button,
+a {
+  color: #925d3b;
+}
+
+footer > p > a {
+  text-decoration: none;
+}
+
+h1,
+.dish-description h2 {
+  margin: 0.6rem 0;
 }
 
 p {
@@ -14,12 +31,13 @@ p {
 
 h1,
 button,
-.hero-text-wrapper > p {
+.hero-text-wrapper > p,
+.dish-description > span {
   font-weight: bold;
 }
 
 button {
-  margin: 1rem 0;
+  margin: 1.2rem 0;
   outline: none;
   border: none;
   font-size: 1.1rem;
@@ -30,12 +48,6 @@ button {
   background: #925d3b;
   color: white;
   padding: 0.5rem 1.8rem;
-}
-
-.clear-bg-button,
-#favorites-button,
-a {
-  color: #925d3b;
 }
 
 .clear-bg-button,
@@ -50,7 +62,6 @@ a {
 
 label {
   float: center;
-  width: 100%;
   text-transform: uppercase;
   background-color: #925d3b;
   color: white;
@@ -60,7 +71,8 @@ label {
 
 button,
 #logo,
-label {
+label,
+.dish-description > span > a {
   cursor: pointer;
 }
 
@@ -94,7 +106,12 @@ footer {
   position: relative;
 }
 
-.hero-container > img {
+.hero-container > img,
+.question-image,
+.next-button-wrapper,
+label,
+.dish-image,
+.dish-description {
   width: 100%;
 }
 
@@ -117,13 +134,16 @@ footer {
   margin: 1rem 0;
 }
 
+.result-container > h1 {
+  border: #925d3b solid 3px;
+}
+
 .question-details-wrapper {
-  margin: 0 2rem;
+  margin: 0 4rem;
 }
 
 .question-image {
-  width: 100%;
-  padding: 2rem;
+  padding: 1.6rem;
 }
 
 .meal-type,
@@ -145,28 +165,32 @@ input[type="radio"]:checked + label {
   float: right;
 }
 
-label h2,
-.question-heading h2,
-.next-button {
-  margin: 1.2rem 0;
-}
-
 .next-button:hover {
   background-color: #925d3b;
   color: white;
 }
 
-.next-button-wrapper {
-  width: 100%;
+.dish-image {
+  padding-bottom: 0.6rem;
+}
+
+.dish-description {
+  border: 2px solid #925d3b;
+  padding: 2rem;
+}
+
+.dish-description-wrapper,
+.dish-image-wrapper {
+  padding: 0 2rem;
+}
+
+.dish-description > span > a {
+  text-decoration: underline;
 }
 
 footer {
   font-size: 0.7rem;
   padding: 0.5rem 0;
-}
-
-footer > p > a {
-  text-decoration: none;
 }
 
 footer > p > a:hover {

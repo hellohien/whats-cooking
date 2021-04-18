@@ -16,23 +16,27 @@ a {
   color: #925d3b;
 }
 
-footer > p > a {
+footer > p > a,
+.get-instructions-link {
   text-decoration: none;
 }
 
 h1,
-.dish-description h2 {
+.dish-description h2,
+.restart-quiz-button {
   margin: 0.6rem 0;
 }
 
-p {
+p,
+.restart-quiz-wrapper > h2 {
   margin: 0;
 }
 
 h1,
 button,
 .hero-text-wrapper > p,
-.dish-description > span {
+.dish-description > span,
+.get-instructions-link {
   font-weight: bold;
 }
 
@@ -41,6 +45,11 @@ button {
   outline: none;
   border: none;
   font-size: 1.1rem;
+}
+
+.get-instructions-link,
+button,
+label {
   text-transform: uppercase;
 }
 
@@ -62,7 +71,6 @@ button {
 
 label {
   float: center;
-  text-transform: uppercase;
   background-color: #925d3b;
   color: white;
   display: block;
@@ -93,7 +101,8 @@ label,
 .hero-text-wrapper,
 .question-details-wrapper,
 .next-button,
-footer {
+footer,
+.restart-quiz-wrapper {
   text-align: center;
 }
 
@@ -102,7 +111,7 @@ footer {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  height: 84vh;
+  height: 80vh;
   position: relative;
 }
 
@@ -165,7 +174,8 @@ input[type="radio"]:checked + label {
   float: right;
 }
 
-.next-button:hover {
+.next-button:hover,
+.restart-quiz-button:hover {
   background-color: #925d3b;
   color: white;
 }
@@ -184,15 +194,16 @@ input[type="radio"]:checked + label {
   padding: 0 2rem;
 }
 
-.dish-description > span > a {
-  text-decoration: underline;
+.restart-quiz-wrapper {
+  margin: 2rem 0;
 }
 
 footer {
   font-size: 0.7rem;
-  padding: 0.5rem 0;
+  padding: 0.6rem 0;
 }
 
-footer > p > a:hover {
+footer > p > a:hover,
+.get-instructions-link:hover {
   text-decoration: underline;
 }

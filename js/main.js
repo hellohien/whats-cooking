@@ -24,14 +24,12 @@ function getRecipeData(mealType, cusineType) {
     var ingredients = xhrRequest.response.hits[randomIndex].recipe.ingredientLines;
     var imageSrc = xhrRequest.response.hits[randomIndex].recipe.image;
     var getInstructionsUrl = xhrRequest.response.hits[randomIndex].recipe.url;
-
     var recipeObj = {
       name: recipeName,
       ingredient: ingredients,
       imageUrl: imageSrc,
       instructionsUrl: getInstructionsUrl
     };
-
     recommendedDish(recipeObj);
   });
   xhrRequest.send();
@@ -65,8 +63,7 @@ function recommendedDish(recipeObj) {
   $getInstructionsLink.target = '_blank';
   $getInstructionsLink.setAttribute('class', 'get-instructions-link');
   $getInstructionsLink.href = recipeObj.instructionsUrl;
-  $dishDescription.appendChild($getInstructionsLink);
-
+  $cuisineTypeForm.appendChild($getInstructionsLink);
 }
 
 function setMealAndCusineInfo(event) {

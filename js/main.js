@@ -116,4 +116,7 @@ function getDataValue() {
 $mealTypeForm.addEventListener('submit', setMealAndCusineInfo);
 $cuisineTypeForm.addEventListener('submit', setMealAndCusineInfo);
 $startQuizButton.addEventListener('click', getDataValue);
-$restartQuizButton.addEventListener('click', getDataValue);
+$restartQuizButton.addEventListener('click', function () {
+  getDataValue();
+  location.reload();
+});

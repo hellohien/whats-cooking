@@ -44,6 +44,10 @@ function recommendedDish(recipeObj) {
   $dishDescriptionWrapper.setAttribute('class', 'column-half dish-description-wrapper');
   $dishWrapper.appendChild($dishDescriptionWrapper);
 
+  var $favoriteIcon = document.createElement('i');
+  $favoriteIcon.setAttribute('class', 'favorite-icon fas fa-heart');
+  $dishDescriptionWrapper.appendChild($favoriteIcon);
+
   var $dishDescription = document.createElement('div');
   $dishDescription.setAttribute('class', 'dish-description');
   $dishDescriptionWrapper.appendChild($dishDescription);

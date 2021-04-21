@@ -5,7 +5,7 @@ header {
 }
 
 .clear-bg-button,
-#favorites-button,
+.favorites-button,
 a {
   color: #925d3b;
 }
@@ -58,7 +58,7 @@ button {
 }
 
 .clear-bg-button,
-#favorites-button {
+.favorites-button {
   background: none;
 }
 
@@ -74,7 +74,8 @@ button {
 
 button,
 #logo,
-.dish-description > span > a {
+.dish-description > span > a,
+.favorite-icon {
   cursor: pointer;
 }
 
@@ -83,12 +84,12 @@ button,
   height: 100px;
 }
 
-#favorites-button {
+.favorites-button {
   font-size: 2rem;
   padding: 0;
 }
 
-#favorites-button:hover {
+.favorites-button:hover {
   color: #db7f45;
 }
 
@@ -150,8 +151,17 @@ footer,
   margin: 0.5rem 0;
 }
 
+.favorite-icon {
+  color: rgb(196, 196, 196);
+  font-size: 1.6rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
 .dish-description-wrapper {
   box-shadow: 5px 5px 15px rgba(133, 133, 133, 0.228);
+  position: relative;
 }
 
 .dish-image {

@@ -1,10 +1,9 @@
 var $startQuizButton = document.querySelector('.start-quiz-button');
 var $restartQuizButton = document.querySelector('.restart-quiz-button');
-var $dishDescriptionWrapper = document.querySelector('.dish-description-wrapper');
-var $dishImageWrapper = document.querySelector('.dish-image-wrapper');
 var $pageContainer = document.getElementsByClassName('page-container');
 var $question1 = document.querySelector('.question-1-details');
 var $question2 = document.querySelector('.question-2-details');
+var $recommendedDishWrapper = document.querySelector('.recommended-dish-wrapper');
 
 var mealType = null;
 var cuisineType = null;
@@ -23,14 +22,28 @@ function getRecipeData(mealType, cusineType) {
       name: recipeName,
       ingredient: ingredients,
       imageUrl: imageSrc,
-      instructionsUrl: getInstructionsUrl
+      instructionsUrl: getInstructionsUrl,
+      recipeId: data.nextRecipeId
     };
-    recommendedDish(recipeObj);
+    data.nextRecipeId++;
+    data.recipes.unshift(recipeObj);
+    $recommendedDishWrapper.prepend(recommendedDish(recipeObj));
   });
   xhrRequest.send();
 }
 
 function recommendedDish(recipeObj) {
+  var $dishWrapper = document.createElement('div');
+  $dishWrapper.setAttribute('class', 'row dish-wrapper');
+
+  var $dishImageWrapper = document.createElement('div');
+  $dishImageWrapper.setAttribute('class', 'column-half dish-image-wrapper');
+  $dishWrapper.appendChild($dishImageWrapper);
+
+  var $dishDescriptionWrapper = document.createElement('div');
+  $dishDescriptionWrapper.setAttribute('class', 'column-half dish-description-wrapper');
+  $dishWrapper.appendChild($dishDescriptionWrapper);
+
   var $dishDescription = document.createElement('div');
   $dishDescription.setAttribute('class', 'dish-description');
   $dishDescriptionWrapper.appendChild($dishDescription);
@@ -63,6 +76,8 @@ function recommendedDish(recipeObj) {
   $getInstructionsLink.setAttribute('class', 'get-instructions-link');
   $getInstructionsLink.href = recipeObj.instructionsUrl;
   $dishDescription.appendChild($getInstructionsLink);
+
+  return $dishWrapper;
 }
 
 function setMealAndCusineInfo(event) {
@@ -98,14 +113,14 @@ function getDataValue() {
   changeView(dataView);
 }
 
-function reloadPage() {
-  location.reload();
+function resetData() {
+  mealType = null;
+  cuisineType = null;
+  $recommendedDishWrapper.innerHTML = '';
+  changeView('home-page');
 }
 
 $question1.addEventListener('click', setMealAndCusineInfo);
 $question2.addEventListener('click', setMealAndCusineInfo);
 $startQuizButton.addEventListener('click', getDataValue);
-$restartQuizButton.addEventListener('click', function () {
-  getDataValue();
-  reloadPage();
-});
+$restartQuizButton.addEventListener('click', resetData);

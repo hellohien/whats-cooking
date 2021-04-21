@@ -16,7 +16,7 @@
   <div class="main-container">
     <header>
       <a href=""><img id="logo" src="images/logo.png" alt="Logo"></a>
-      <button class="favorites-button"><i class="fas fa-heart"></i></button>
+      <button class="favorites-button" data-view="favorites"><i class="fas fa-heart"></i></button>
     </header>
 
     <main>
@@ -66,6 +66,12 @@
         <div class="restart-quiz-message-wrapper">
           <h2>Not feeling this recipe?</h2>
           <button class="restart-quiz-button clear-bg-button" data-view="home-page">Restart Quiz</button>
+        </div>
+      </div>
+
+      <div class="page-container favorites-container hidden" data-view="favorites">
+        <h1 class="row">Favorites</h1>
+        <div class="recommended-dish-wrapper favorited-dish">
         </div>
       </div>
     </main>

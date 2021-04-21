@@ -42,7 +42,8 @@ button {
 }
 
 .get-instructions-link,
-button {
+button,
+h1 {
   text-transform: uppercase;
 }
 
@@ -63,8 +64,12 @@ button {
 }
 
 .clear-bg-button {
-  border: solid #925d3b 2px;
   padding: 0.3rem 1.8rem;
+}
+
+.favorites-container h1,
+.clear-bg-button {
+  border: solid #925d3b 2px;
 }
 
 .clear-bg-button:hover {
@@ -125,7 +130,11 @@ footer,
   top: 50%;
   transform: translate(-50%, -50%);
   border: #925d3b solid 3px;
-  box-shadow: 5px 5px 10px rgba(133, 133, 133, 0.865);
+}
+
+.hero-text-wrapper,
+.favorites-container h1 {
+  box-shadow: 5px 4px 9px rgba(133, 133, 133, 0.66);
 }
 
 .hero-text-wrapper > h1 {
@@ -190,11 +199,14 @@ footer,
   margin: 2rem 0;
 }
 
+.favorites-container h1 {
+  margin: 1rem 2rem;
+}
+
 footer {
   font-size: 0.7rem;
   padding: 0.6rem 0;
-  position: fixed;
-  bottom: 0;
+  position: absolute;
   right: 0;
   left: 0;
   background: white;

@@ -135,6 +135,10 @@ footer,
   margin: 1rem 0;
 }
 
+.question-image {
+  padding: 1.6rem;
+}
+
 .question-details-wrapper {
   display: flex;
   flex-direction: column;
@@ -144,10 +148,6 @@ footer,
 
 .question-details-wrapper button {
   margin: 0.5rem 0;
-}
-
-.question-image {
-  padding: 1.6rem;
 }
 
 .dish-description-wrapper {

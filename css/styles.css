@@ -6,7 +6,8 @@ header {
 
 .clear-bg-button,
 .favorites-button,
-a {
+a,
+.filled {
   color: #925d3b;
 }
 
@@ -59,7 +60,8 @@ h1 {
 }
 
 .clear-bg-button,
-.favorites-button {
+.favorites-button,
+.favorite-button {
   background: none;
 }
 
@@ -80,7 +82,7 @@ h1 {
 button,
 #logo,
 .dish-description > span > a,
-.favorite-icon {
+.favorite-button {
   cursor: pointer;
 }
 
@@ -160,7 +162,7 @@ footer,
   margin: 0.5rem 0;
 }
 
-.favorite-icon {
+.favorite-button {
   color: rgb(196, 196, 196);
   font-size: 1.6rem;
   position: absolute;
@@ -178,7 +180,7 @@ footer,
 }
 
 .dish-description {
-  padding: 1rem;
+  padding: 2rem 1rem;
   text-align: left;
 }
 

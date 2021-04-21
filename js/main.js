@@ -4,6 +4,7 @@ var $pageContainer = document.getElementsByClassName('page-container');
 var $question1 = document.querySelector('.question-1-details');
 var $question2 = document.querySelector('.question-2-details');
 var $recommendedDishWrapper = document.querySelector('.recommended-dish-wrapper');
+var $favoritesButton = document.querySelector('.favorites-button');
 
 var mealType = null;
 var cuisineType = null;
@@ -44,9 +45,12 @@ function recommendedDish(recipeObj) {
   $dishDescriptionWrapper.setAttribute('class', 'column-half dish-description-wrapper');
   $dishWrapper.appendChild($dishDescriptionWrapper);
 
+  var $favoriteIconButton = document.createElement('button');
   var $favoriteIcon = document.createElement('i');
-  $favoriteIcon.setAttribute('class', 'favorite-icon fas fa-heart');
-  $dishDescriptionWrapper.appendChild($favoriteIcon);
+  $favoriteIconButton.setAttribute('class', 'favorite-button');
+  $favoriteIcon.setAttribute('class', 'fas fa-heart');
+  $favoriteIconButton.appendChild($favoriteIcon);
+  $dishDescriptionWrapper.appendChild($favoriteIconButton);
 
   var $dishDescription = document.createElement('div');
   $dishDescription.setAttribute('class', 'dish-description');
@@ -108,7 +112,6 @@ function changeView(view) {
     } else {
       $pageContainer[i].classList.add('hidden');
     }
-
   }
 }
 
@@ -124,7 +127,15 @@ function resetData() {
   changeView('home-page');
 }
 
+function addToFavorites(event) {
+  if (event.target.nodeName === 'I') {
+    event.target.classList.toggle('filled');
+  }
+}
+
 $question1.addEventListener('click', setMealAndCusineInfo);
 $question2.addEventListener('click', setMealAndCusineInfo);
 $startQuizButton.addEventListener('click', getDataValue);
 $restartQuizButton.addEventListener('click', resetData);
+$favoritesButton.addEventListener('click', getDataValue);
+$recommendedDishWrapper.addEventListener('click', addToFavorites);

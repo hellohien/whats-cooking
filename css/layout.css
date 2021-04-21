@@ -49,4 +49,8 @@ body {
   .hero-text-wrapper {
     width: 600px;
   }
+
+  .dish-image {
+    padding-bottom: 0;
+  }
 }

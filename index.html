@@ -20,113 +20,53 @@
     </header>
 
     <main>
-      <div class="row hero-container" data-view="home-page">
+      <div class="row page-container hero-container" data-view="home-page">
         <div class="hero-image-wrapper">
         </div>
         <div class="hero-text-wrapper">
           <h1>What's Cooking?</h1>
           <p>Don't know? Take the quiz to get a tasty recipe!</p>
-          <button class="dark-bg-button start-quiz-button">Start Quiz</button>
+          <button class="dark-bg-button start-quiz-button" data-view="question-1">Start Quiz</button>
         </div>
       </div>
 
-      <div class="row question-container question-1-container hidden" data-view="question-1">
+      <div class="row page-container question-container question-1-container hidden" data-view="question-1">
         <div class="column-half">
           <img src="images/question-1-image.png" class="question-image" alt="Question 1 Image">
         </div>
         <div class="column-half">
-          <div class="question-details-wrapper">
-            <form id="meal-type-form">
-              <h2>Choose your meal type:</h2>
-              <div class="meal-type-options">
-                <div class="meal-type breakfast-option">
-                  <input type="radio" name="meal-type" id="breakfast">
-                  <label for="breakfast" class="question-label">breakfast</label>
-                </div>
-                <div class="meal-type brunch-option">
-                  <input type="radio" name="meal-type" id="brunch">
-                  <label for="brunch" class="question-label">brunch</label>
-                </div>
-                <div class="meal-type lunch-option">
-                  <input type="radio" name="meal-type" id="lunch">
-                  <label for="lunch" class="question-label">lunch</label>
-                </div>
-                <div class="meal-type dinner-option">
-                  <input type="radio" name="meal-type" id="dinner">
-                  <label for="dinner" class="question-label">dinner</label>
-                </div>
-                <div class="meal-type snack-option">
-                  <input type="radio" name="meal-type" id="snack">
-                  <label for="snack" class="question-label">snack</label>
-                </div>
-                <div class="next-button-wrapper">
-                  <button class="next-button clear-bg-button">Next</button>
-                </div>
-              </div>
-            </form>
+          <div class="question-1-details question-details-wrapper">
+            <button class="meal-type dark-bg-button">breakfast</button>
+            <button class="meal-type dark-bg-button">brunch</button>
+            <button class="meal-type dark-bg-button">lunch</button>
+            <button class="meal-type dark-bg-button">dinner</button>
+            <button class="meal-type dark-bg-button">snack</button>
           </div>
         </div>
       </div>
 
-      <div class="row question-container question-2-container hidden" data-view="question-2">
+      <div class="row page-container question-container question-2-container hidden" data-view="question-2">
         <div class="column-half">
-          <img src="images/question-2-image.png" class="question-image" alt="Question 1 Image">
+          <img class="question-image" src="images/question-2-image.png" alt="Question 1 Image">
         </div>
         <div class="column-half">
-          <div class="question-details-wrapper">
-            <form id="cuisine-type-form">
-              <h2>What are you in the mood for?</h2>
-              <div class="cuisine-type-options">
-                <div class="cuisine-type american-option">
-                  <input type="radio" name="cuisine-type" id="american">
-                  <label for="american" class="question-label">american</label>
-                </div>
-                <div class="cuisine-type asian-option">
-                  <input type="radio" name="cuisine-type" id="asian">
-                  <label for="asian" class="question-label">asian</label>
-                </div>
-                <div class="cuisine-type italian-option">
-                  <input type="radio" name="cuisine-type" id="italian">
-                  <label for="italian" class="question-label">italian</label>
-                </div>
-                <div class="cuisine-type mediterranean-option">
-                  <input type="radio" name="cuisine-type" id="mediterranean">
-                  <label for="mediterranean" class="question-label">mediterranean</label>
-                </div>
-                <div class="cuisine-type mexican-option">
-                  <input type="radio" name="cuisine-type" id="mexican">
-                  <label for="mexican" class="question-label">mexican</label>
-                </div>
-                <div class="next-button-wrapper">
-                  <button class="next-button clear-bg-button">Let's Cook</button>
-                </div>
-              </div>
-            </form>
+          <div class="question-2-details question-details-wrapper">
+            <button class="cuisine-type dark-bg-button">american</button>
+            <button class="cuisine-type dark-bg-button">asian</button>
+            <button class="cuisine-type dark-bg-button">italian</button>
+            <button class="cuisine-type dark-bg-button">mediterranean</button>
+            <button class="cuisine-type dark-bg-button">mexican</button>
           </div>
         </div>
       </div>
 
-      <div class="result-container hidden" data-view="recommended-recipe">
-        <div class="row">
-          <div class="column-half dish-image-wrapper">
-            <img class="dish-image " src="images/dummyimage.jpeg" alt="dummy">
-          </div>
-          <div class="column-half dish-description-wrapper">
-            <div class="dish-description">
-              <h2>Perfect Porterhouse Steak</h2>
-              <p>Ingredients</p>
-              <ul>
-                <li>2”-thick Porterhouse steak, trimmed (about 2 lb.)</li>
-                <li>tablespoon vegetable oil</li>
-                <li>Kosher salt and freshly ground black pepper</li>
-                <li>tablespoons unsalted butter, room temperature</li>
-              </ul>
-              <span>Get the <a>full instructions</a> here!</span>
-            </div>
-
-          </div>
+      <div class="page-container recommended-dish-container hidden" data-view="recommended-dish">
+        <div class="recommended-dish-wrapper">
         </div>
-
+        <div class="restart-quiz-message-wrapper">
+          <h2>Not feeling this recipe?</h2>
+          <button class="restart-quiz-button clear-bg-button" data-view="home-page">Restart Quiz</button>
+        </div>
       </div>
     </main>
 

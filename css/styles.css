@@ -4,35 +4,33 @@ header {
   justify-content: space-between;
 }
 
-label h2,
-.question-heading h2,
-.next-button {
-  margin: 1.2rem 0;
-}
-
 .clear-bg-button,
 #favorites-button,
 a {
   color: #925d3b;
 }
 
-footer > p > a {
+footer > p > a,
+.get-instructions-link {
   text-decoration: none;
 }
 
 h1,
-.dish-description h2 {
+.dish-description h2,
+.restart-quiz-button {
   margin: 0.6rem 0;
 }
 
-p {
+p,
+.restart-quiz-message-wrapper > h2 {
   margin: 0;
 }
 
 h1,
 button,
 .hero-text-wrapper > p,
-.dish-description > span {
+.dish-description > span,
+.get-instructions-link {
   font-weight: bold;
 }
 
@@ -41,6 +39,10 @@ button {
   outline: none;
   border: none;
   font-size: 1.1rem;
+}
+
+.get-instructions-link,
+button {
   text-transform: uppercase;
 }
 
@@ -48,6 +50,11 @@ button {
   background: #925d3b;
   color: white;
   padding: 0.5rem 1.8rem;
+}
+
+.dark-bg-button:hover {
+  background: #db7f45;
+  color: white;
 }
 
 .clear-bg-button,
@@ -60,18 +67,13 @@ button {
   padding: 0.3rem 1.8rem;
 }
 
-label {
-  float: center;
-  text-transform: uppercase;
+.clear-bg-button:hover {
   background-color: #925d3b;
   color: white;
-  display: block;
-  padding: 0.3rem;
 }
 
 button,
 #logo,
-label,
 .dish-description > span > a {
   cursor: pointer;
 }
@@ -87,13 +89,13 @@ label,
 }
 
 #favorites-button:hover {
-  color: #db9264;
+  color: #db7f45;
 }
 
 .hero-text-wrapper,
 .question-details-wrapper,
-.next-button,
-footer {
+footer,
+.recommended-dish-container {
   text-align: center;
 }
 
@@ -102,14 +104,12 @@ footer {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  height: 84vh;
+  height: 80vh;
   position: relative;
 }
 
 .hero-container > img,
 .question-image,
-.next-button-wrapper,
-label,
 .dish-image,
 .dish-description {
   width: 100%;
@@ -124,6 +124,7 @@ label,
   top: 50%;
   transform: translate(-50%, -50%);
   border: #925d3b solid 3px;
+  box-shadow: 5px 5px 10px rgba(133, 133, 133, 0.865);
 }
 
 .hero-text-wrapper > h1 {
@@ -134,40 +135,23 @@ label,
   margin: 1rem 0;
 }
 
-.result-container > h1 {
-  border: #925d3b solid 3px;
-}
-
-.question-details-wrapper {
-  margin: 0 4rem;
-}
-
 .question-image {
   padding: 1.6rem;
 }
 
-.meal-type,
-.cuisine-type {
-  margin: 0.8rem 0;
+.question-details-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 2rem;
 }
 
-input[type="radio"] {
-  display: none;
+.question-details-wrapper button {
+  margin: 0.5rem 0;
 }
 
-.start-quiz-button:hover,
-label:hover,
-input[type="radio"]:checked + label {
-  background-color: #db9264;
-}
-
-.next-button {
-  float: right;
-}
-
-.next-button:hover {
-  background-color: #925d3b;
-  color: white;
+.dish-description-wrapper {
+  box-shadow: 5px 5px 15px rgba(133, 133, 133, 0.228);
 }
 
 .dish-image {
@@ -175,8 +159,8 @@ input[type="radio"]:checked + label {
 }
 
 .dish-description {
-  border: 2px solid #925d3b;
-  padding: 2rem;
+  padding: 1rem;
+  text-align: left;
 }
 
 .dish-description-wrapper,
@@ -184,15 +168,29 @@ input[type="radio"]:checked + label {
   padding: 0 2rem;
 }
 
-.dish-description > span > a {
-  text-decoration: underline;
+.dish-description > ul {
+  list-style-type: none;
+}
+
+.recommended-dish-container {
+  margin: 2rem;
+}
+
+.restart-quiz-message-wrapper {
+  margin: 2rem 0;
 }
 
 footer {
   font-size: 0.7rem;
-  padding: 0.5rem 0;
+  padding: 0.6rem 0;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: white;
 }
 
-footer > p > a:hover {
+footer > p > a:hover,
+.get-instructions-link:hover {
   text-decoration: underline;
 }

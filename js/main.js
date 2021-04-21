@@ -1,15 +1,10 @@
-var $mealTypeForm = document.getElementById('meal-type-form');
-var $cuisineTypeForm = document.getElementById('cuisine-type-form');
-var $mealType = document.getElementsByName('meal-type');
-var $cuisineType = document.getElementsByName('cuisine-type');
 var $startQuizButton = document.querySelector('.start-quiz-button');
 var $restartQuizButton = document.querySelector('.restart-quiz-button');
-var $homePage = document.querySelector('.hero-container');
-var $form1 = document.querySelector('.question-1-container');
-var $form2 = document.querySelector('.question-2-container');
-var $recommendedDishContainer = document.querySelector('.recommended-dish-container');
-var $dishDescription = document.querySelector('.dish-description');
+var $dishDescriptionWrapper = document.querySelector('.dish-description-wrapper');
 var $dishImageWrapper = document.querySelector('.dish-image-wrapper');
+var $pageContainer = document.getElementsByClassName('page-container');
+var $question1 = document.querySelector('.question-1-details');
+var $question2 = document.querySelector('.question-2-details');
 
 var mealType = null;
 var cuisineType = null;
@@ -36,6 +31,10 @@ function getRecipeData(mealType, cusineType) {
 }
 
 function recommendedDish(recipeObj) {
+  var $dishDescription = document.createElement('div');
+  $dishDescription.setAttribute('class', 'dish-description');
+  $dishDescriptionWrapper.appendChild($dishDescription);
+
   var $dishImage = document.createElement('img');
   $dishImage.setAttribute('class', 'dish-image');
   $dishImage.src = recipeObj.imageUrl;
@@ -63,48 +62,34 @@ function recommendedDish(recipeObj) {
   $getInstructionsLink.target = '_blank';
   $getInstructionsLink.setAttribute('class', 'get-instructions-link');
   $getInstructionsLink.href = recipeObj.instructionsUrl;
-  $cuisineTypeForm.appendChild($getInstructionsLink);
+  $dishDescription.appendChild($getInstructionsLink);
 }
 
 function setMealAndCusineInfo(event) {
-  event.preventDefault();
-  if (event.target.getAttribute('id') === 'meal-type-form') {
-    for (var mealIndex = 0; mealIndex < $mealType.length; mealIndex++) {
-      if ($mealType[mealIndex].checked) {
-        mealType = $mealType[mealIndex].getAttribute('id');
-      }
-    }
+  if (event.target.className.includes('meal-type')) {
+    mealType = event.target.textContent;
     changeView('question-2');
-  } else if (event.target.getAttribute('id') === 'cuisine-type-form') {
-    for (var cuisineIndex = 0; cuisineIndex < $cuisineType.length; cuisineIndex++) {
-      if ($cuisineType[cuisineIndex].checked) {
-        cuisineType = $cuisineType[cuisineIndex].getAttribute('id');
-      }
-    }
+  } else if (event.target.className.includes('cuisine-type')) {
+    cuisineType = event.target.textContent;
     changeView('recommended-dish');
   }
-  checkMealAndCusineInfo();
+  checkMealAndCusineInfo(mealType, cuisineType);
 }
 
-function checkMealAndCusineInfo(event) {
+function checkMealAndCusineInfo() {
   if (mealType && cuisineType) {
     getRecipeData(mealType, cuisineType);
   }
 }
 
 function changeView(view) {
-  if (view === 'home-page') {
-    $recommendedDishContainer.classList.add('hidden');
-    $homePage.classList.remove('hidden');
-  } else if (view === 'question-1') {
-    $homePage.classList.add('hidden');
-    $form1.classList.remove('hidden');
-  } else if (view === 'question-2') {
-    $form1.classList.add('hidden');
-    $form2.classList.remove('hidden');
-  } else if (view === 'recommended-dish') {
-    $form2.classList.add('hidden');
-    $recommendedDishContainer.classList.remove('hidden');
+  for (var i = 0; i < $pageContainer.length; i++) {
+    if ($pageContainer[i].dataset.view === view) {
+      $pageContainer[i].classList.remove('hidden');
+    } else {
+      $pageContainer[i].classList.add('hidden');
+    }
+
   }
 }
 
@@ -113,10 +98,14 @@ function getDataValue() {
   changeView(dataView);
 }
 
-$mealTypeForm.addEventListener('submit', setMealAndCusineInfo);
-$cuisineTypeForm.addEventListener('submit', setMealAndCusineInfo);
+function reloadPage() {
+  location.reload();
+}
+
+$question1.addEventListener('click', setMealAndCusineInfo);
+$question2.addEventListener('click', setMealAndCusineInfo);
 $startQuizButton.addEventListener('click', getDataValue);
 $restartQuizButton.addEventListener('click', function () {
   getDataValue();
-  location.reload();
+  reloadPage();
 });

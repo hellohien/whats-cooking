@@ -37,7 +37,7 @@ body {
   .column-half {
     flex-basis: 50%;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
   }

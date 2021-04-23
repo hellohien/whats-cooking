@@ -69,7 +69,7 @@ function recommendedDish(recipeObj, isFavorite) {
   $dishDescription.appendChild($recipeName);
 
   var $ingredientHeading = document.createElement('p');
-  $ingredientHeading.textContent = 'Ingredients';
+  $ingredientHeading.textContent = 'Ingredients:';
   $dishDescription.appendChild($ingredientHeading);
 
   var $ingredientList = document.createElement('ul');

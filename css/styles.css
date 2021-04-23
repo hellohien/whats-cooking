@@ -1,13 +1,20 @@
 header {
-  margin: 0 2rem;
   display: flex;
   justify-content: space-between;
+}
+
+.favorite-button {
+  color: rgb(196, 196, 196);
+  font-size: 1.6rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 }
 
 .clear-bg-button,
 .favorites-button,
 a,
-.filled {
+.favorited {
   color: #925d3b;
 }
 
@@ -17,7 +24,6 @@ footer > p > a,
 }
 
 h1,
-.dish-description h2,
 .restart-quiz-button {
   margin: 0.6rem 0;
 }
@@ -87,12 +93,12 @@ button,
 }
 
 #logo {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
 }
 
 .favorites-button {
-  font-size: 2rem;
+  font-size: 1.8rem;
   padding: 0;
 }
 
@@ -103,7 +109,8 @@ button,
 .hero-text-wrapper,
 .question-details-wrapper,
 footer,
-.recommended-dish-container {
+.recommended-dish-container,
+.favorites-container h1 {
   text-align: center;
 }
 
@@ -114,6 +121,12 @@ footer,
   background-position: center;
   height: 80vh;
   position: relative;
+}
+
+.question-image,
+.dish-image-wrapper,
+.dish-description-wrapper {
+  max-width: 600px;
 }
 
 .hero-container > img,
@@ -143,31 +156,19 @@ footer,
   font-size: 2.2rem;
 }
 
-.question-container {
-  margin: 1rem 0;
-}
-
-.question-image {
-  padding: 1.6rem;
+.question-container,
+.dish-wrapper {
+  justify-content: center;
 }
 
 .question-details-wrapper {
   display: flex;
   flex-direction: column;
   width: 300px;
-  margin: 0 2rem;
 }
 
 .question-details-wrapper button {
   margin: 0.5rem 0;
-}
-
-.favorite-button {
-  color: rgb(196, 196, 196);
-  font-size: 1.6rem;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
 }
 
 .dish-description-wrapper {
@@ -176,7 +177,7 @@ footer,
 }
 
 .dish-image {
-  padding-bottom: 0.6rem;
+  padding-bottom: 0.4rem;
 }
 
 .dish-description {
@@ -184,34 +185,25 @@ footer,
   text-align: left;
 }
 
-.dish-description-wrapper,
-.dish-image-wrapper {
-  padding: 0 2rem;
+.dish-description h2 {
+  margin: 0 3rem 0.6rem 0;
 }
 
 .dish-description > ul {
   list-style-type: none;
 }
 
-.recommended-dish-container {
-  margin: 2rem;
-}
-
-.restart-quiz-message-wrapper {
-  margin: 2rem 0;
-}
-
 .favorites-container h1 {
   margin: 1rem 2rem;
 }
 
+.dish-wrapper {
+  margin-bottom: 2rem;
+}
+
 footer {
   font-size: 0.7rem;
-  padding: 0.6rem 0;
-  position: absolute;
-  right: 0;
-  left: 0;
-  background: white;
+  padding: 1rem 0;
 }
 
 footer > p > a:hover,

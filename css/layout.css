@@ -6,7 +6,7 @@ body {
 }
 
 .main-container {
-  max-width: 667px;
+  max-width: 640px;
   margin: 0 auto;
   position: relative;
   height: 100vh;
@@ -14,8 +14,9 @@ body {
 
 .row {
   display: flex;
-  justify-content: center;
+  width: 100%;
   flex-wrap: wrap;
+  margin: 1.4rem;
 }
 
 .hidden {
@@ -23,9 +24,26 @@ body {
 }
 
 @media screen and (min-width: 668px) {
+  .main-container {
+    max-width: 800px;
+  }
+
   .question-image,
+  .dish-image-wrapper,
+  .dish-description-wrapper {
+    width: 700px;
+  }
+
+  .column-half {
+    padding: 0 0.6rem;
+  }
+
+  .dish-description-wrapper {
+    margin: 0;
+  }
+
   .dish-image {
-    max-width: 660px;
+    padding-bottom: 0;
   }
 }
 
@@ -34,12 +52,19 @@ body {
     max-width: 1200px;
   }
 
+  .question-image,
+  .dish-image-wrapper,
+  .dish-description-wrapper {
+    max-width: 800px;
+  }
+
   .column-half {
     flex-basis: 50%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    padding: 0 1rem;
   }
 
   .hero-text-wrapper > h1 {
@@ -49,8 +74,5 @@ body {
   .hero-text-wrapper {
     width: 600px;
   }
-
-  .dish-image {
-    padding-bottom: 0;
-  }
+}
 }

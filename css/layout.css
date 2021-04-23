@@ -6,7 +6,7 @@ body {
 }
 
 .main-container {
-  max-width: 667px;
+  max-width: 640px;
   margin: 0 auto;
   position: relative;
   height: 100vh;
@@ -14,8 +14,13 @@ body {
 
 .row {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  margin: 1rem 2rem;
+}
+
+.column-full .column-half {
+  width: 100%;
+  margin: 0.2rem 0;
 }
 
 .hidden {
@@ -23,9 +28,20 @@ body {
 }
 
 @media screen and (min-width: 668px) {
-  .question-image,
+  .main-container {
+    max-width: 800px;
+  }
+
+  .column-half {
+    padding: 0 0.6rem;
+  }
+
+  .dish-description-wrapper {
+    margin: 0;
+  }
+
   .dish-image {
-    max-width: 660px;
+    padding-bottom: 0;
   }
 }
 
@@ -38,7 +54,6 @@ body {
     flex-basis: 50%;
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
   }
 

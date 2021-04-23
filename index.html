@@ -14,9 +14,9 @@
 
 <body>
   <div class="main-container">
-    <header>
+    <header class="row">
       <a href=""><img id="logo" src="images/logo.png" alt="Logo"></a>
-      <button id="favorites-button"><i class="fas fa-heart"></i></button>
+      <button class="favorites-button" ><i class="fas fa-heart" data-view="favorites"></i></button>
     </header>
 
     <main>
@@ -31,10 +31,10 @@
       </div>
 
       <div class="row page-container question-container question-1-container hidden" data-view="question-1">
-        <div class="column-half">
+        <div class="column-full column-half">
           <img src="images/question-1-image.png" class="question-image" alt="Question 1 Image">
         </div>
-        <div class="column-half">
+        <div class="column-full column-half">
           <div class="question-1-details question-details-wrapper">
             <button class="meal-type dark-bg-button">breakfast</button>
             <button class="meal-type dark-bg-button">brunch</button>
@@ -63,9 +63,15 @@
       <div class="page-container recommended-dish-container hidden" data-view="recommended-dish">
         <div class="recommended-dish-wrapper">
         </div>
-        <div class="restart-quiz-message-wrapper">
+        <div class="column-full restart-quiz-message-wrapper">
           <h2>Not feeling this recipe?</h2>
           <button class="restart-quiz-button clear-bg-button" data-view="home-page">Restart Quiz</button>
+        </div>
+      </div>
+
+      <div class="page-container favorites-container hidden" data-view="favorites">
+        <h1>Favorites</h1>
+        <div class="favorited-dish">
         </div>
       </div>
     </main>

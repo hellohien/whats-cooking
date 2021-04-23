@@ -37,7 +37,7 @@ function getRecipeData(mealType, cusineType) {
 
 function recommendedDish(recipeObj, isFavorite) {
   var $dishWrapper = document.createElement('div');
-  $dishWrapper.setAttribute('class', 'row dish-wrapper');
+  $dishWrapper.setAttribute('class', 'row column-full dish-wrapper');
 
   var $dishImageWrapper = document.createElement('div');
   $dishImageWrapper.setAttribute('class', 'column-half dish-image-wrapper');
@@ -52,6 +52,7 @@ function recommendedDish(recipeObj, isFavorite) {
 
   $favoriteIcon.setAttribute('class', 'fas fa-heart');
   $favoriteIconButton.appendChild($favoriteIcon);
+  $favoriteIconButton.setAttribute('class', 'favorite-button');
   $dishDescriptionWrapper.appendChild($favoriteIconButton);
 
   var $dishDescription = document.createElement('div');
@@ -88,10 +89,9 @@ function recommendedDish(recipeObj, isFavorite) {
   $dishDescription.appendChild($getInstructionsLink);
 
   if (isFavorite) {
-    $favoriteIconButton.setAttribute('class', 'favorite-button favorited');
-  } else {
-    $favoriteIconButton.setAttribute('class', 'favorite-button');
+    $favoriteIconButton.classList.add('favorited');
   }
+
   return $dishWrapper;
 }
 

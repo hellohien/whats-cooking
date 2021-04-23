@@ -14,9 +14,13 @@ body {
 
 .row {
   display: flex;
-  width: 100%;
   flex-wrap: wrap;
-  margin: 1.4rem;
+  margin: 1rem 2rem;
+}
+
+.column-full .column-half {
+  width: 100%;
+  margin: 0.2rem 0;
 }
 
 .hidden {
@@ -26,12 +30,6 @@ body {
 @media screen and (min-width: 668px) {
   .main-container {
     max-width: 800px;
-  }
-
-  .question-image,
-  .dish-image-wrapper,
-  .dish-description-wrapper {
-    width: 700px;
   }
 
   .column-half {
@@ -52,19 +50,11 @@ body {
     max-width: 1200px;
   }
 
-  .question-image,
-  .dish-image-wrapper,
-  .dish-description-wrapper {
-    max-width: 800px;
-  }
-
   .column-half {
     flex-basis: 50%;
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
-    padding: 0 1rem;
   }
 
   .hero-text-wrapper > h1 {
@@ -74,5 +64,4 @@ body {
   .hero-text-wrapper {
     width: 600px;
   }
-}
 }

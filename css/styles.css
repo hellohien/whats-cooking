@@ -126,7 +126,7 @@ footer,
 .question-image,
 .dish-image-wrapper,
 .dish-description-wrapper {
-  max-width: 600px;
+  max-width: 500px;
 }
 
 .hero-container > img,
@@ -172,8 +172,8 @@ footer,
 }
 
 .dish-description-wrapper {
-  box-shadow: 5px 5px 15px rgba(133, 133, 133, 0.228);
   position: relative;
+  box-shadow: 5px 5px 15px rgba(133, 133, 133, 0.228);
 }
 
 .dish-image {
@@ -193,12 +193,12 @@ footer,
   list-style-type: none;
 }
 
-.favorites-container h1 {
-  margin: 1rem 2rem;
+.restart-quiz-message-wrapper {
+  margin: 2rem;
 }
 
-.dish-wrapper {
-  margin-bottom: 2rem;
+.favorites-container > h1 {
+  margin: 1rem;
 }
 
 footer {

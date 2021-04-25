@@ -6,10 +6,7 @@ body {
 }
 
 .main-container {
-  max-width: 640px;
   margin: 0 auto;
-  position: relative;
-  height: 100vh;
 }
 
 .row {
@@ -36,10 +33,6 @@ body {
     padding: 0 0.6rem;
   }
 
-  .dish-description-wrapper {
-    margin: 0;
-  }
-
   .dish-image {
     padding-bottom: 0;
   }
@@ -55,6 +48,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .question-image,
+  .dish-image-wrapper,
+  .dish-description-wrapper {
+    max-width: 700px;
   }
 
   .hero-text-wrapper > h1 {

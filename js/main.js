@@ -6,7 +6,7 @@ var $question2 = document.querySelector('.question-2-details');
 var $recommendedDishWrapper = document.querySelector('.recommended-dish-wrapper');
 var $favoritesButton = document.querySelector('.favorites-button');
 var $favoritedDish = document.querySelector('.favorited-dish');
-var $favoriteButton = document.getElementsByClassName('favorite-button');
+var $favoriteButtonIcon = document.getElementsByClassName('fas');
 
 var mealType = null;
 var cuisineType = null;
@@ -48,12 +48,13 @@ function recommendedDish(recipeObj, isFavorite) {
   $dishWrapper.appendChild($dishDescriptionWrapper);
 
   var $favoriteIconButton = document.createElement('button');
-  var $favoriteIcon = document.createElement('i');
-
-  $favoriteIcon.setAttribute('class', 'fas fa-heart');
-  $favoriteIconButton.appendChild($favoriteIcon);
   $favoriteIconButton.setAttribute('class', 'favorite-button');
   $dishDescriptionWrapper.appendChild($favoriteIconButton);
+
+  var $favoriteIcon = document.createElement('i');
+  $favoriteIcon.setAttribute('data-view', recipeObj.recipeId);
+  $favoriteIcon.setAttribute('class', 'fas fa-heart');
+  $favoriteIconButton.appendChild($favoriteIcon);
 
   var $dishDescription = document.createElement('div');
   $dishDescription.setAttribute('class', 'dish-description');
@@ -69,7 +70,7 @@ function recommendedDish(recipeObj, isFavorite) {
   $dishDescription.appendChild($recipeName);
 
   var $ingredientHeading = document.createElement('p');
-  $ingredientHeading.textContent = 'Ingredients';
+  $ingredientHeading.textContent = 'Ingredients:';
   $dishDescription.appendChild($ingredientHeading);
 
   var $ingredientList = document.createElement('ul');
@@ -89,7 +90,7 @@ function recommendedDish(recipeObj, isFavorite) {
   $dishDescription.appendChild($getInstructionsLink);
 
   if (isFavorite) {
-    $favoriteIconButton.classList.add('favorited');
+    $favoriteIcon.classList.add('favorited');
   }
 
   return $dishWrapper;
@@ -135,26 +136,29 @@ function resetData() {
 }
 
 function toggleFavorite(event) {
-  fillHeartIcon();
-  var recipeId = data.nextRecipeId - 1;
-  if (event.target.className.includes('favorited')) {
+  if (event.target.matches('i')) {
+    var recipeId = Number(event.target.getAttribute('data-view'));
     for (var i = 0; i < data.recipes.length; i++) {
-      if (Number(data.recipes[i].recipeId) === recipeId) {
-        $favoritedDish.prepend(recommendedDish(data.recipes[i], true));
+      if (data.recipes[i].recipeId === recipeId) {
+        if (event.target.className.includes('favorited')) {
+          event.target.classList.toggle('favorited');
+          data.recipes.splice(i, 1);
+          $favoritedDish.children[i].remove();
+        } else {
+          event.target.classList.toggle('favorited');
+          $favoritedDish.prepend(recommendedDish(data.recipes[i], true));
+        }
       }
     }
   }
 }
 
-function fillHeartIcon() {
-  if (event.target.nodeName === 'I') {
-    event.target.classList.toggle('favorited');
+function renderFavorites() {
+  $favoritedDish.innerHTML = '';
+  for (var i = 0; i < data.recipes.length; i++) {
+    $favoritedDish.appendChild(recommendedDish(data.recipes[i]));
+    $favoriteButtonIcon[i].classList.add('favorited');
   }
-}
-
-for (var i = 0; i < data.recipes.length; i++) {
-  $favoritedDish.appendChild(recommendedDish(data.recipes[i]));
-  $favoriteButton[i].classList.add('favorited');
 }
 
 $question1.addEventListener('click', setMealAndCusineInfo);
@@ -164,4 +168,4 @@ $restartQuizButton.addEventListener('click', resetData);
 $favoritesButton.addEventListener('click', getDataValue);
 $recommendedDishWrapper.addEventListener('click', toggleFavorite);
 $favoritedDish.addEventListener('click', toggleFavorite);
-$recommendedDishWrapper.addEventListener('click', toggleFavorite);
+renderFavorites();

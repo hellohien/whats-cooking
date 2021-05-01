@@ -13,7 +13,7 @@ var cuisineType = null;
 
 function getRecipeData(mealType, cusineType) {
   var xhrRequest = new XMLHttpRequest();
-  xhrRequest.open('GET', 'https://api.edamam.com/search?app_id=56d29915&app_key=8a2c94a84e7c4a5a2c94ff997508b44b&from=0&to=20&q=&mealType=' + mealType + '&cuisineType=' + cusineType);
+  xhrRequest.open('GET', 'https://api.edamam.com/search?app_id=56d29915&app_key=8a2c94a84e7c4a5a2c94ff997508b44b&from=0&to=30&q=&mealType=' + mealType + '&cuisineType=' + cusineType);
   xhrRequest.responseType = 'json';
   xhrRequest.addEventListener('load', function () {
     var randomIndex = Math.floor(Math.random() * xhrRequest.response.hits.length);
@@ -26,16 +26,17 @@ function getRecipeData(mealType, cusineType) {
       ingredient: ingredients,
       imageUrl: imageSrc,
       instructionsUrl: getInstructionsUrl,
+      isFav: false,
       recipeId: data.nextRecipeId
     };
     data.nextRecipeId++;
     data.recipes.unshift(recipeObj);
-    $recommendedDishWrapper.prepend(recommendedDish(recipeObj, false));
+    $recommendedDishWrapper.prepend(recommendedDish(recipeObj));
   });
   xhrRequest.send();
 }
 
-function recommendedDish(recipeObj, isFavorite) {
+function recommendedDish(recipeObj) {
   var $dishWrapper = document.createElement('div');
   $dishWrapper.setAttribute('class', 'row column-full dish-wrapper');
 
@@ -89,9 +90,9 @@ function recommendedDish(recipeObj, isFavorite) {
   $getInstructionsLink.href = recipeObj.instructionsUrl;
   $dishDescription.appendChild($getInstructionsLink);
 
-  if (isFavorite) {
-    $favoriteIcon.classList.add('favorited');
-  }
+  // if (isFavorite) {
+  //   $favoriteIcon.classList.add('favorited');
+  // }
 
   return $dishWrapper;
 }
@@ -135,23 +136,50 @@ function resetData() {
   changeView('home-page');
 }
 
-function toggleFavorite(event) {
+function addFavorite(event) {
   if (event.target.matches('i')) {
     var recipeId = Number(event.target.getAttribute('data-view'));
     for (var i = 0; i < data.recipes.length; i++) {
-      if (data.recipes[i].recipeId === recipeId) {
-        if (event.target.className.includes('favorited')) {
-          event.target.classList.toggle('favorited');
+      if (data.recipes[i].recipeId === recipeId && !data.recipes[i].recipeId.isFav) {
+        console.log('addFavorite');
+        event.target.classList.add('favorited');
+        $favoritedDish.prepend(recommendedDish(data.recipes[i]));
+        data.recipes[i].isFav = true;
+        console.log(data.recipes);
+        return;
+      }
+    }
+  }
+}
+
+function removeFavorite() {
+  if (event.target.matches('i')) {
+    var recipeId = Number(event.target.getAttribute('data-view'));
+    for (var i = 0; i < data.recipes.length; i++) {
+      if (data.recipes[i].recipeId === recipeId && data.recipes[i].recipeId.isFav) {
+        console.log('removeFavorite');
+        event.target.classList.remove('favorited');
+        if (data.recipes.length > 0) {
           data.recipes.splice(i, 1);
           $favoritedDish.children[i].remove();
-        } else {
-          event.target.classList.toggle('favorited');
-          $favoritedDish.prepend(recommendedDish(data.recipes[i], true));
         }
       }
     }
   }
 }
+
+// function removeFavorite() {
+//   if (event.target.matches('i')) {
+//     var recipeId = Number(event.target.getAttribute('data-view'));
+//     for (var i = 0; i < data.recipes.length; i++) {
+//       if (data.recipes[i].recipeId === recipeId) {
+//         event.target.classList.remove('favorited');
+//         data.recipes.splice(i, 1);
+//         $favoritedDish.children[i].remove();
+//       }
+//     }
+//   }
+// }
 
 function renderFavorites() {
   $favoritedDish.innerHTML = '';
@@ -166,6 +194,9 @@ $question2.addEventListener('click', setMealAndCusineInfo);
 $startQuizButton.addEventListener('click', getDataValue);
 $restartQuizButton.addEventListener('click', resetData);
 $favoritesButton.addEventListener('click', getDataValue);
-$recommendedDishWrapper.addEventListener('click', toggleFavorite);
-$favoritedDish.addEventListener('click', toggleFavorite);
+$recommendedDishWrapper.addEventListener('click', function (event) {
+  addFavorite(event);
+  removeFavorite(event);
+});
+// $favoritedDish.addEventListener('click', removeFavorite);
 renderFavorites();

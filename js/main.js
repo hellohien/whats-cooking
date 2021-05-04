@@ -158,10 +158,7 @@ function removeFavorite(event) {
       if (data.recipes[i].recipeId === recipeId) {
         console.log('removeFavorite');
         event.target.classList.remove('favorited');
-        if (data.recipes.length !== 0) {
-          data.recipes.splice(i, 1);
-          $favoritedDish.children[i].remove();
-        }
+
       }
     }
   }
@@ -181,7 +178,7 @@ function toggleFavorite(event) {
 function renderFavorites() {
   $favoritedDish.innerHTML = '';
   for (var i = 0; i < data.recipes.length; i++) {
-    $favoritedDish.appendChild(recommendedDish(data.recipes[i]));
+    $favoritedDish.appendChild(recommendedDish(data.recipes[i], true));
     $favoriteButtonIcon[i].classList.add('favorited');
   }
 }
@@ -193,4 +190,12 @@ $restartQuizButton.addEventListener('click', resetData);
 $favoritesButton.addEventListener('click', getDataValue);
 $recommendedDishWrapper.addEventListener('click', toggleFavorite);
 $favoritedDish.addEventListener('click', removeFavorite);
+window.addEventListener('DOMContentLoaded', function () {
+  for (var i = 0; i < data.recipes.length; i++) {
+    if (data.recipes.length !== 0) {
+      data.recipes.splice(i, 1);
+      $favoritedDish.children[i].remove();
+    }
+  }
+});
 renderFavorites();

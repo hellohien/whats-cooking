@@ -31,7 +31,7 @@ function getRecipeData(mealType, cusineType) {
     };
     data.nextRecipeId++;
     data.recipes.unshift(recipeObj);
-    $recommendedDishWrapper.prepend(recommendedDish(recipeObj, false));
+    $recommendedDishWrapper.prepend(recommendedDish(recipeObj, recipeObj.isFav));
   });
   xhrRequest.send();
 }
@@ -144,7 +144,7 @@ function addFavorite(event) {
         console.log('addFavorite');
         event.target.classList.add('favorited');
         data.recipes[i].isFav = true;
-        $favoritedDish.prepend(recommendedDish(data.recipes[i], data.recipes[i].isFav));
+        $favoritedDish.prepend(recommendedDish(data.recipes[i], true));
         return;
       }
     }
@@ -157,13 +157,23 @@ function removeFavorite(event) {
     for (var i = 0; i < data.recipes.length; i++) {
       if (data.recipes[i].recipeId === recipeId) {
         console.log('removeFavorite');
-        data.recipes[i].isFav = false;
         event.target.classList.remove('favorited');
-        if (data.recipes.length > 0) {
+        if (data.recipes.length !== 0) {
           data.recipes.splice(i, 1);
           $favoritedDish.children[i].remove();
         }
       }
+    }
+  }
+}
+
+function toggleFavorite(event) {
+  var recipeId = Number(event.target.getAttribute('data-view'));
+  for (var i = 0; i < data.recipes.length; i++) {
+    if (data.recipes[i].recipeId === recipeId && data.recipes[i].isFav) {
+      removeFavorite(event);
+    } else if (data.recipes[i].recipeId === recipeId && !data.recipes[i].isFav) {
+      addFavorite(event);
     }
   }
 }
@@ -181,16 +191,6 @@ $question2.addEventListener('click', setMealAndCusineInfo);
 $startQuizButton.addEventListener('click', getDataValue);
 $restartQuizButton.addEventListener('click', resetData);
 $favoritesButton.addEventListener('click', getDataValue);
-$recommendedDishWrapper.addEventListener('click', function (event) {
-  var recipeId = Number(event.target.getAttribute('data-view'));
-  for (var i = 0; i < data.recipes.length; i++) {
-    if (data.recipes[i].recipeId === recipeId && data.recipes[i].isFav) {
-      removeFavorite(event);
-    } else if (data.recipes[i].recipeId === recipeId && !data.recipes[i].isFav) {
-      addFavorite(event);
-    }
-  }
-
-});
+$recommendedDishWrapper.addEventListener('click', toggleFavorite);
 $favoritedDish.addEventListener('click', removeFavorite);
 renderFavorites();

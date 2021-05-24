@@ -7,8 +7,6 @@ body {
 
 .main-container {
   margin: 0 auto;
-  position: relative;
-  height: 100vh;
 }
 
 .row {

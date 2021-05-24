@@ -3,7 +3,10 @@ main {
 }
 
 header {
+  display: flex;
   justify-content: space-between;
+  flex-wrap: nowrap;
+  margin: 0 0.6rem;
 }
 
 .favorite-button {

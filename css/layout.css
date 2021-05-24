@@ -6,7 +6,6 @@ body {
 }
 
 .main-container {
-  max-width: 640px;
   margin: 0 auto;
   position: relative;
   height: 100vh;
@@ -15,7 +14,7 @@ body {
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 1rem;
+  margin: 0 2rem;
 }
 
 .column-full .column-half {
@@ -28,8 +27,8 @@ body {
 }
 
 @media screen and (min-width: 668px) {
-  .main-container {
-    max-width: 800px;
+  header {
+    margin: 0 3rem;
   }
 
   .column-half {
@@ -54,10 +53,6 @@ body {
 @media screen and (min-width: 992px) {
   .main-container {
     max-width: 1200px;
-  }
-
-  .row {
-    margin: 0 2rem;
   }
 
   .column-half {

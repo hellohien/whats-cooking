@@ -182,7 +182,7 @@ function removeFavorite(event) {
       var recipeId = parseInt(event.target.getAttribute('data-view'));
       if (data.recipes[i].recipeId === recipeId) {
         $favoritedDish.removeChild($favoritedDish.children[i]);
-        delete data.recipes[i];
+        data.recipes.splice(i, 1);
         return;
       }
     }

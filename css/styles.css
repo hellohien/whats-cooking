@@ -1,5 +1,8 @@
+main {
+  min-height: calc(100vh - (95px + 69px));
+}
+
 header {
-  display: flex;
   justify-content: space-between;
 }
 
@@ -12,7 +15,7 @@ header {
 }
 
 .clear-bg-button,
-.favorites-button,
+.nav-favorite-button,
 a,
 .favorited {
   color: #925d3b;
@@ -28,6 +31,11 @@ h1,
   margin: 0.6rem 0;
 }
 
+button,
+h2 {
+  margin: 1rem;
+}
+
 p,
 .restart-quiz-message-wrapper > h2 {
   margin: 0;
@@ -35,20 +43,19 @@ p,
 
 h1,
 button,
-.hero-text-wrapper > p,
 .dish-description > span,
 .get-instructions-link {
   font-weight: bold;
 }
 
 button {
-  margin: 1.2rem 0;
   outline: none;
   border: none;
   font-size: 1.1rem;
 }
 
 .get-instructions-link,
+.view-favorites-button,
 button,
 h1 {
   text-transform: uppercase;
@@ -66,7 +73,7 @@ h1 {
 }
 
 .clear-bg-button,
-.favorites-button,
+.nav-favorite-button,
 .favorite-button {
   background: none;
 }
@@ -93,16 +100,16 @@ button,
 }
 
 #logo {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
 }
 
-.favorites-button {
+.nav-favorite-button {
   font-size: 1.8rem;
   padding: 0;
 }
 
-.favorites-button:hover {
+.nav-favorite-button:hover {
   color: #db7f45;
 }
 
@@ -136,15 +143,19 @@ footer,
   width: 100%;
 }
 
-.hero-text-wrapper {
+.hero-text-wrapper,
+.modal {
   background-color: #eee;
-  opacity: 0.9;
+  border: #925d3b solid 3px;
   padding: 1rem 2rem;
+}
+
+.hero-text-wrapper {
+  opacity: 0.9;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  border: #925d3b solid 3px;
 }
 
 .hero-text-wrapper,
@@ -169,6 +180,38 @@ footer,
 
 .question-details-wrapper button {
   margin: 0.5rem 0;
+}
+
+.overlay {
+  background: rgba(34, 34, 34, 0.721);
+}
+
+.modal-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.modal {
+  width: 500px;
+  height: auto;
+  margin: 2rem;
+  position: relative;
+}
+
+.close-modal-button {
+  color: rgb(186, 186, 186);
+  font-size: 1.6rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
 }
 
 .dish-description-wrapper {
@@ -203,7 +246,7 @@ footer,
 
 footer {
   font-size: 0.7rem;
-  padding: 1rem 0;
+  padding: 1.2rem 0;
 }
 
 footer > p > a:hover,

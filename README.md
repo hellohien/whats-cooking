@@ -1,3 +1,5 @@
-# ajax-project
+# whats-cooking
 
-A dynamic HTML, CSS, and JavaScript solo project.
+Don't know what to cook? Take the quiz to generate a custom recipe!
+
+<a href="https://hnguy96.github.io/whats-cooking/">Live Site</a>

@@ -4,16 +4,19 @@ var $pageContainer = document.getElementsByClassName('page-container');
 var $question1 = document.querySelector('.question-1-details');
 var $question2 = document.querySelector('.question-2-details');
 var $recommendedDishWrapper = document.querySelector('.recommended-dish-wrapper');
-var $favoritesButton = document.querySelector('.favorites-button');
+var $favoritesButton = document.querySelector('.nav-favorite-button');
 var $favoritedDish = document.querySelector('.favorited-dish');
-var $favoriteButton = document.getElementsByClassName('favorite-button');
+var $modalContainer = document.querySelector('.modal-container');
+var $modalCloseButton = document.querySelector('.close-modal-button');
+var $viewFavoriteButton = document.querySelector('.view-favorites-button');
 
 var mealType = null;
 var cuisineType = null;
+var clickCounter = 0;
 
 function getRecipeData(mealType, cusineType) {
   var xhrRequest = new XMLHttpRequest();
-  xhrRequest.open('GET', 'https://api.edamam.com/search?app_id=56d29915&app_key=8a2c94a84e7c4a5a2c94ff997508b44b&from=0&to=20&q=&mealType=' + mealType + '&cuisineType=' + cusineType);
+  xhrRequest.open('GET', 'https://api.edamam.com/search?app_id=56d29915&app_key=8a2c94a84e7c4a5a2c94ff997508b44b&from=0&to=30&q=&mealType=' + mealType + '&cuisineType=' + cusineType);
   xhrRequest.responseType = 'json';
   xhrRequest.addEventListener('load', function () {
     var randomIndex = Math.floor(Math.random() * xhrRequest.response.hits.length);
@@ -26,16 +29,21 @@ function getRecipeData(mealType, cusineType) {
       ingredient: ingredients,
       imageUrl: imageSrc,
       instructionsUrl: getInstructionsUrl,
+      isFavorite: false,
       recipeId: data.nextRecipeId
     };
     data.nextRecipeId++;
     data.recipes.unshift(recipeObj);
-    $recommendedDishWrapper.prepend(recommendedDish(recipeObj, false));
+    $recommendedDishWrapper.prepend(recommendedDish(recipeObj, recipeObj.isFavorite));
   });
   xhrRequest.send();
 }
 
 function recommendedDish(recipeObj, isFavorite) {
+  if (!recipeObj) {
+    return;
+  }
+
   var $dishWrapper = document.createElement('div');
   $dishWrapper.setAttribute('class', 'row column-full dish-wrapper');
 
@@ -48,12 +56,13 @@ function recommendedDish(recipeObj, isFavorite) {
   $dishWrapper.appendChild($dishDescriptionWrapper);
 
   var $favoriteIconButton = document.createElement('button');
-  var $favoriteIcon = document.createElement('i');
-
-  $favoriteIcon.setAttribute('class', 'fas fa-heart');
-  $favoriteIconButton.appendChild($favoriteIcon);
   $favoriteIconButton.setAttribute('class', 'favorite-button');
   $dishDescriptionWrapper.appendChild($favoriteIconButton);
+
+  var $favoriteIcon = document.createElement('i');
+  $favoriteIcon.setAttribute('class', 'fas fa-heart');
+  $favoriteIcon.setAttribute('data-view', recipeObj.recipeId);
+  $favoriteIconButton.appendChild($favoriteIcon);
 
   var $dishDescription = document.createElement('div');
   $dishDescription.setAttribute('class', 'dish-description');
@@ -89,7 +98,7 @@ function recommendedDish(recipeObj, isFavorite) {
   $dishDescription.appendChild($getInstructionsLink);
 
   if (isFavorite) {
-    $favoriteIconButton.classList.add('favorited');
+    $favoriteIcon.classList.add('favorited');
   }
 
   return $dishWrapper;
@@ -132,29 +141,52 @@ function resetData() {
   cuisineType = null;
   $recommendedDishWrapper.innerHTML = '';
   changeView('home-page');
+  clickCounter = 0;
 }
 
-function toggleFavorite(event) {
-  fillHeartIcon();
-  var recipeId = data.nextRecipeId - 1;
-  if (event.target.className.includes('favorited')) {
-    for (var i = 0; i < data.recipes.length; i++) {
-      if (Number(data.recipes[i].recipeId) === recipeId) {
-        $favoritedDish.prepend(recommendedDish(data.recipes[i], true));
-      }
+function renderFavorites() {
+  $favoritedDish.innerHTML = '';
+  for (var i = 0; i < data.recipes.length; i++) {
+    if (!data.recipes[i]) {
+      return;
+    }
+    $favoritedDish.appendChild(recommendedDish(data.recipes[i], true));
+  }
+}
+
+function showModal() {
+  $modalContainer.classList.remove('hidden');
+}
+
+function hideModal() {
+  $modalContainer.classList.add('hidden');
+}
+
+function addFavorite(event) {
+  if (event.target.matches('i')) {
+    if (clickCounter === 0) {
+      clickCounter += 1;
+      event.target.classList.add('favorited');
+      var recipe = data.recipes.concat(data.recipes[0]);
+      data.recipes = recipe;
+      $favoritedDish.prepend(recommendedDish(data.recipes[0], true));
+    } else {
+      showModal();
     }
   }
 }
 
-function fillHeartIcon() {
-  if (event.target.nodeName === 'I') {
-    event.target.classList.toggle('favorited');
+function removeFavorite(event) {
+  if (event.target.matches('i')) {
+    for (var i = 0; i < data.recipes.length; i++) {
+      var recipeId = parseInt(event.target.getAttribute('data-view'));
+      if (data.recipes[i].recipeId === recipeId) {
+        $favoritedDish.removeChild($favoritedDish.children[i]);
+        data.recipes.splice(i, 1);
+        return;
+      }
+    }
   }
-}
-
-for (var i = 0; i < data.recipes.length; i++) {
-  $favoritedDish.appendChild(recommendedDish(data.recipes[i]));
-  $favoriteButton[i].classList.add('favorited');
 }
 
 $question1.addEventListener('click', setMealAndCusineInfo);
@@ -162,6 +194,8 @@ $question2.addEventListener('click', setMealAndCusineInfo);
 $startQuizButton.addEventListener('click', getDataValue);
 $restartQuizButton.addEventListener('click', resetData);
 $favoritesButton.addEventListener('click', getDataValue);
-$recommendedDishWrapper.addEventListener('click', toggleFavorite);
-$favoritedDish.addEventListener('click', toggleFavorite);
-$recommendedDishWrapper.addEventListener('click', toggleFavorite);
+$recommendedDishWrapper.addEventListener('click', addFavorite);
+$favoritedDish.addEventListener('click', removeFavorite);
+$modalCloseButton.addEventListener('click', hideModal);
+$viewFavoriteButton.addEventListener('click', getDataValue);
+renderFavorites();

@@ -39,18 +39,6 @@ h2 {
   margin: 1rem;
 }
 
-p,
-.restart-quiz-message-wrapper > h2 {
-  margin: 0;
-}
-
-h1,
-button,
-.dish-description > span,
-.get-instructions-link {
-  font-weight: bold;
-}
-
 button {
   outline: none;
   border: none;
@@ -60,8 +48,36 @@ button {
 .get-instructions-link,
 .view-favorites-button,
 button,
-h1 {
+h1,
+h2 {
   text-transform: uppercase;
+}
+
+.question-image {
+  margin-bottom: 1.5rem;
+  width: 85%;
+}
+
+.hero-text-wrapper,
+.question-details-wrapper,
+footer,
+.recommended-dish-container,
+h1,
+.question-image-wrapper h2 {
+  text-align: center;
+}
+
+p,
+.restart-quiz-message-wrapper > h2 {
+  margin: 0;
+}
+
+h1,
+button,
+.dish-description > span,
+.get-instructions-link,
+.hero-text-wrapper p {
+  font-weight: bold;
 }
 
 .dark-bg-button {
@@ -116,14 +132,6 @@ button,
   color: #db7f45;
 }
 
-.hero-text-wrapper,
-.question-details-wrapper,
-footer,
-.recommended-dish-container,
-.favorites-container h1 {
-  text-align: center;
-}
-
 .hero-container {
   background-image: url('../images/hero-image.png');
   background-size: contain;
@@ -140,7 +148,6 @@ footer,
 }
 
 .hero-container > img,
-.question-image,
 .dish-image,
 .dish-description {
   width: 100%;
@@ -168,6 +175,10 @@ footer,
 
 .hero-text-wrapper > h1 {
   font-size: 2.2rem;
+}
+
+.dish-wrapper {
+  padding: 1rem;
 }
 
 .question-container,

@@ -45,7 +45,7 @@ function recommendedDish(recipeObj, isFavorite) {
   }
 
   var $dishWrapper = document.createElement('div');
-  $dishWrapper.setAttribute('class', 'row column-full dish-wrapper');
+  $dishWrapper.setAttribute('class', 'row dish-wrapper');
 
   var $dishImageWrapper = document.createElement('div');
   $dishImageWrapper.setAttribute('class', 'column-half dish-image-wrapper');
@@ -110,6 +110,16 @@ function setMealAndCusineInfo(event) {
     changeView('question-2');
   } else if (event.target.className.includes('cuisine-type')) {
     cuisineType = event.target.textContent;
+    if (cuisineType === 'asian') {
+      var asianCuisineArr = ['asian', 'indian', 'japanese', 'chinese'];
+      var asianCuisineIndex = Math.floor(Math.random() * asianCuisineArr.length);
+      cuisineType = asianCuisineArr[asianCuisineIndex];
+    }
+    if (cuisineType === 'surprise me!') {
+      var cuisineArr = ['asian', 'indian', 'japanese', 'chinese', 'american', 'british', 'caribbean', 'central europe', 'eastern europe', 'french', 'italian', 'mediterranean', 'mexican', 'middle eastern', 'nordic', 'south american', 'south east asian'];
+      var cuisineIndex = Math.floor(Math.random() * cuisineArr.length);
+      cuisineType = cuisineArr[cuisineIndex];
+    }
     changeView('recommended-dish');
   }
   checkMealAndCusineInfo(mealType, cuisineType);

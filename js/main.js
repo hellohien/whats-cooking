@@ -9,6 +9,8 @@ var $favoritedDish = document.querySelector('.favorited-dish');
 var $modalContainer = document.querySelector('.modal-container');
 var $modalCloseButton = document.querySelector('.close-modal-button');
 var $viewFavoriteButton = document.querySelector('.view-favorites-button');
+var $emptyFavoritesMsg = document.querySelector('.empty-favorites-msg');
+var $loaderWrapper = document.querySelector('.loader-wrapper');
 
 var mealType = null;
 var cuisineType = null;
@@ -34,6 +36,7 @@ function getRecipeData(mealType, cusineType) {
     };
     data.nextRecipeId++;
     data.recipes.unshift(recipeObj);
+    $loaderWrapper.classList.add('hidden');
     $recommendedDishWrapper.prepend(recommendedDish(recipeObj, recipeObj.isFavorite));
   });
   xhrRequest.send();
@@ -101,6 +104,12 @@ function recommendedDish(recipeObj, isFavorite) {
     $favoriteIcon.classList.add('favorited');
   }
 
+  if ($dishWrapper) {
+    $emptyFavoritesMsg.classList.add('hidden');
+  } else if (!$dishWrapper) {
+    $emptyFavoritesMsg.classList.remove('hidden');
+  }
+
   return $dishWrapper;
 }
 
@@ -152,15 +161,18 @@ function resetData() {
   $recommendedDishWrapper.innerHTML = '';
   changeView('home-page');
   clickCounter = 0;
+  $loaderWrapper.classList.remove('hidden');
 }
 
 function renderFavorites() {
   $favoritedDish.innerHTML = '';
-  for (var i = 0; i < data.recipes.length; i++) {
+  for (var i = 0; i < data.recipes.length - 1; i++) {
     if (!data.recipes[i]) {
       return;
     }
-    $favoritedDish.appendChild(recommendedDish(data.recipes[i], true));
+    if (data.recipes[i].isFavorite) {
+      $favoritedDish.appendChild(recommendedDish(data.recipes[i], true));
+    }
   }
 }
 
@@ -177,8 +189,7 @@ function addFavorite(event) {
     if (clickCounter === 0) {
       clickCounter += 1;
       event.target.classList.add('favorited');
-      var recipe = data.recipes.concat(data.recipes[0]);
-      data.recipes = recipe;
+      data.recipes[0].isFavorite = true;
       $favoritedDish.prepend(recommendedDish(data.recipes[0], true));
     } else {
       showModal();
@@ -208,4 +219,4 @@ $recommendedDishWrapper.addEventListener('click', addFavorite);
 $favoritedDish.addEventListener('click', removeFavorite);
 $modalCloseButton.addEventListener('click', hideModal);
 $viewFavoriteButton.addEventListener('click', getDataValue);
-renderFavorites();
+window.addEventListener('beforeunload', renderFavorites());

@@ -17,7 +17,7 @@
   <div class="main-container">
     <header>
       <a href=""><img id="logo" src="images/logo.png" alt="Logo"></a>
-      <button class="nav-favorite-button" ><i class="fas fa-heart" data-view="favorites"></i></button>
+      <button class="nav-favorite-button" ><i class="fas fa-heart" data-view="favorites"> Favorites</i></button>
     </header>
 
     <main>
@@ -32,9 +32,9 @@
       </div>
 
       <div class="row page-container question-container question-1-container hidden" data-view="question-1">
-        <div class="question-image-wrapper column-full column-half">
+        <div class="question-image-wrapper column">
           <h2>choose your meal type:</h2>
-          <img src="images/question-1-image.png" class="question-image" alt="Question 1 Image">
+          <img src="images/question-1-image.png" alt="Question 1 Image">
         </div>
         <div class="column-half">
           <div class="question-1-details question-details-wrapper">
@@ -48,9 +48,9 @@
       </div>
 
       <div class="row page-container question-container question-2-container hidden" data-view="question-2">
-        <div class="question-image-wrapper column-full column-half">
+        <div class="question-image-wrapper column column-half">
           <h2>choose your cuisine type:</h2>
-          <img class="question-image" src="images/question-2-image.png" alt="Question 1 Image">
+          <img src="images/question-2-image.png" alt="Question 1 Image">
         </div>
         <div class="column-half">
           <div class="question-2-details question-details-wrapper">
@@ -64,32 +64,37 @@
         </div>
       </div>
 
+
       <div class="page-container recommended-dish-container hidden" data-view="recommended-dish">
+        <div class="row loader-wrapper">
+          <div class="loader"></div>
+        </div>
         <div class="modal-container overlay hidden">
          <div class="modal">
            <h2>Whoops</h2>
-           <p>Looks like you have already added this to your favorite!</p>
-          <button class="close-modal-button"><i class="fa fa-close"></i></button>
+           <p>Looks like you've already added this to your favorite!</p>
+           <button class="close-modal-button"><i class="fa fa-close"></i></button>
            <button class="dark-bg-button view-favorites-button" data-view="favorites">View Favorites</button>
          </div>
         </div>
         <div class="recommended-dish-wrapper">
         </div>
-        <div class="column-full restart-quiz-message-wrapper">
-          <h2>Not feeling this recipe?</h2>
+        <div class="column restart-quiz-message-wrapper">
+          <h3>Not feeling this recipe?</h3>
           <button class="restart-quiz-button clear-bg-button" data-view="home-page">Restart Quiz</button>
         </div>
       </div>
 
       <div class="page-container favorites-container hidden" data-view="favorites">
         <h1>Favorites</h1>
+        <span class="row empty-favorites-msg">You haven't favorited any recipes yet!</span>
         <div class="favorited-dish">
         </div>
       </div>
     </main>
 
     <footer>
-      <p>&copy; <a href="https://github.com/hnguy96/ajax-project" target="_blank">2021 hellohien</a></p>
+      <p>&copy; <a href="https://github.com/hnguy96/whats-cooking" target="_blank">2021 hellohien</a></p>
       <p>Illustrations by TWG Designs</p>
     </footer>
   </div>

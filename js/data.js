@@ -2,6 +2,7 @@
 var data = {
   view: 'favorites',
   recipes: [],
+  currentRecipe: null,
   nextRecipeId: 1
 };
 

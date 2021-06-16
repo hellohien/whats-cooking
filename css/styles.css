@@ -119,9 +119,13 @@ button,
   cursor: pointer;
 }
 
+header button {
+  font-size: 1rem;
+}
+
 #logo {
-  width: 85px;
-  height: 85px;
+  width: 90px;
+  height: 90px;
 }
 
 .nav-favorite-button {
@@ -254,8 +258,12 @@ button,
 }
 
 .dish-description {
-  padding: 2rem;
   text-align: left;
+}
+
+.dish-description,
+.loader-wrapper {
+  padding: 2rem;
 }
 
 .dish-description h2 {

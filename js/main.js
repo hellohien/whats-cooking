@@ -94,6 +94,7 @@ function recommendedDish(recipeObj, isFavorite) {
   var $getInstructionsLink = document.createElement('a');
   $getInstructionsLink.textContent = 'Get Instructions';
   $getInstructionsLink.target = '_blank';
+  $getInstructionsLink.rel = 'noopener';
   $getInstructionsLink.setAttribute('class', 'get-instructions-link');
   $getInstructionsLink.href = recipeObj.instructionsUrl;
   $dishDescription.appendChild($getInstructionsLink);

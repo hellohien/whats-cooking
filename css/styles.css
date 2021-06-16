@@ -34,13 +34,7 @@ h1,
   margin: 0.6rem 0;
 }
 
-button,
-h2 {
-  margin: 1rem;
-}
-
 button {
-  outline: none;
   border: none;
   font-size: 1.1rem;
 }
@@ -73,6 +67,10 @@ h1,
   text-align: center;
 }
 
+.question-image-wrapper h2 {
+  margin: 1rem;
+}
+
 h1,
 button,
 .dish-description > span,
@@ -86,6 +84,25 @@ button,
   padding: 0.5rem 1.2rem;
 }
 
+.close-modal-button {
+  color: rgb(186, 186, 186);
+  font-size: 1.6rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.dark-bg-button,
+.clear-bg-button,
+.nav-favorite-button,
+.favorite-button i,
+.favorited,
+.get-instructions-link,
+.close-modal-button,
+footer > p > a {
+  transition: all 0.3s ease-in-out;
+}
+
 .dark-bg-button {
   background: #925d3b;
   color: white;
@@ -94,6 +111,15 @@ button,
 .dark-bg-button:hover {
   background: #db7f45;
   color: white;
+}
+
+.recommended-dish-wrapper .favorite-button i:hover,
+.close-modal-button:hover {
+  color: #925d3b;
+}
+
+.favorited:hover {
+  color: rgb(196, 196, 196);
 }
 
 .clear-bg-button,
@@ -119,8 +145,10 @@ button,
   cursor: pointer;
 }
 
-header button {
-  font-size: 1rem;
+button,
+.restart-quiz-message-wrapper,
+.favorites-container > h1 {
+  margin: 1rem;
 }
 
 #logo {
@@ -132,7 +160,9 @@ header button {
   margin: 0;
 }
 
-.nav-favorite-button:hover {
+.nav-favorite-button:hover,
+.get-instructions-link:hover,
+footer > p > a:hover {
   color: #db7f45;
 }
 
@@ -224,15 +254,6 @@ header button {
   position: relative;
 }
 
-.close-modal-button {
-  color: rgb(186, 186, 186);
-  font-size: 1.6rem;
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 1rem;
-}
-
 .loader {
   border: 14px solid #ebe1da;
   border-top: 14px solid #925d3b;
@@ -274,14 +295,6 @@ header button {
   list-style-type: none;
 }
 
-.restart-quiz-message-wrapper {
-  margin: 1rem;
-}
-
-.favorites-container > h1 {
-  margin: 1rem;
-}
-
 .favorites-container span {
   margin: 2rem 0;
 }
@@ -289,9 +302,4 @@ header button {
 footer {
   font-size: 0.7rem;
   padding: 1.2rem 0;
-}
-
-footer > p > a:hover,
-.get-instructions-link:hover {
-  text-decoration: underline;
 }

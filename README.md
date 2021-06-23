@@ -17,5 +17,5 @@ A dynamic HTML, CSS, and JavaScript application that allows users to take a quiz
 
 ## Preview
 <p align="center">
- <img width="80%" loading="lazy" src="https://user-images.githubusercontent.com/59902729/122427158-bb7a9c80-cf45-11eb-8bf4-8f85c74a0f16.gif"/>
+ <img width="80%" loading="lazy" src="https://user-images.githubusercontent.com/59902729/123016521-a5267380-d37f-11eb-899c-69e7c51cd7d0.gif"/>
 </p>
